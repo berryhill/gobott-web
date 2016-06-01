@@ -12,7 +12,7 @@ func NewBot() {
 	//bot := new(Bot)
 	gbot := gobot.NewGobot()
 
-	gbot.AddRobot(NewOperator())
+	gbot.AddRobot(NewWebOperator())
 	gbot.Start()
 }
 

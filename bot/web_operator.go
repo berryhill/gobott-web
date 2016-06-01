@@ -7,6 +7,7 @@ import(
 	"github.com/hybridgroup/gobot/platforms/mqtt"
 	"github.com/hybridgroup/gobot"
 	"github.com/gobott/models"
+	//"time"
 )
 
 var mqttAdaptor *mqtt.MqttAdaptor
@@ -14,25 +15,39 @@ var owork func()
 
 func init() {
 	owork = func() {
-		mqttAdaptor.On("data", func(data []byte) {
-			d := json.Unmarshal(data, models.Button{})
-			fmt.Println(d)
-		})
+		mqttAdaptor.On("bot_to_web", func(data []byte) {
+			button := new(models.Button)
+			err := json.Unmarshal(data, button)
 
-		//gobot.Every(1*time.Second, func() {
-		//	json := Buttons[0].MarshalJson()
-		//	SendMessage(json)
-		//})
+			if err != nil {
+				//fmt.Println(err)
+				//return
+			}
+
+
+			fmt.Println(button)
+			return
+		})
+/*
+		gobot.Every(750*time.Millisecond, func() {
+			button := new(models.Button)
+			button.Name = "WebTester"
+			json := button.MarshalJson()
+			SendMessage(json)
+			fmt.Print("Send Message")
+			fmt.Println(json)
+		})
+*/
 	}
 }
 
-func NewOperator() *gobot.Robot {
-	mqttAdaptor = mqtt.NewMqttAdaptor("server", "tcp://test.mosquitto.org:1883", "pinger")
-	robot := gobot.NewRobot("mqttBot", []gobot.Connection{mqttAdaptor}, owork, )
+func NewWebOperator() *gobot.Robot {
+	mqttAdaptor = mqtt.NewMqttAdaptor("server", "tcp://test.mosquitto.org:1883", "web-operator")
+	robot := gobot.NewRobot("WebOperator", []gobot.Connection{mqttAdaptor}, owork, )
 
 	return robot
 }
 
 func SendMessage(b []byte) {
-	mqttAdaptor.Publish("data", b)
+	mqttAdaptor.Publish("web_to_bot", b)
 }
