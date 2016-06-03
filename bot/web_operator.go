@@ -23,8 +23,6 @@ func init() {
 				//fmt.Println(err)
 				//return
 			}
-
-
 			fmt.Println(button)
 			return
 		})

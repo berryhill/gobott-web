@@ -1,11 +1,22 @@
 package main
 
 import (
-	"github.com/gobott-web/bot"
+	"fmt"
+
+	"github.com/labstack/echo"
+	"github.com/gobott-web/controllers"
+	"github.com/labstack/echo/engine/standard"
 )
 
-func main() {}
+func main() {
+	e := echo.New()
+	e.Get("/ping", controllers.Ping("Hello"))
+	e.Get("/add_person/:name", controllers.AddPerson("Hello"))
+
+	fmt.Println("Running a Server on localhost:1323")
+	e.Run(standard.New(":1323"))
+}
 
 func init() {
-	bot.NewBot()
+	//bot.NewBot()
 }
