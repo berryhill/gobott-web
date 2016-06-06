@@ -6,6 +6,7 @@
       <root url="file://$PROJECT_DIR$/.." />
       <root url="file://$PROJECT_DIR$/../../golang.org" />
       <root url="file://$PROJECT_DIR$/../../git.eclipse.org" />
+      <root url="file://$PROJECT_DIR$/../../goji.io" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -3,12 +3,16 @@ package controllers
 import (
 	"fmt"
 	"net/http"
-	"log"
+	//"log"
 
 	"github.com/labstack/echo"
-	"github.com/boltdb/bolt"
+	//"github.com/boltdb/bolt"
+
+	"github.com/gobott-web/models"
+	"github.com/gobott-web/store"
 )
 
+/*
 func init() {
 	db, err := bolt.Open("my.db", 0600, nil)
 
@@ -18,31 +22,7 @@ func init() {
 
 	defer db.Close()
 }
-
-func Ping(my interface{}) echo.HandlerFunc {
-	var err error
-
-	return func(c echo.Context) error {
-		err = nil
-		str := "hey"
-		return respond(c, err, str)
-	}
-}
-
-func AddPerson(my interface{}) echo.HandlerFunc {
-	var err error
-
-	return func(c echo.Context) error {
-		err = nil
-
-		var person struct {
-			Name		string
-		}
-		person.Name = c.Param("name")
-
-		return respond(c, err, person)
-	}
-}
+*/
 
 func respond(c echo.Context, err error, result interface{}) error {
 	var msg string
@@ -69,4 +49,48 @@ func respond(c echo.Context, err error, result interface{}) error {
 		"error":   err != nil,
 		"message": msg,
 	})
+}
+
+func Ping(my interface{}) echo.HandlerFunc {
+	var err error
+
+	return func(c echo.Context) error {
+		err = nil
+		str := "hey"
+		return respond(c, err, str)
+	}
+}
+
+func AddPerson(my interface{}) echo.HandlerFunc {
+	var err error
+	var json []byte
+
+	return func(c echo.Context) error {
+		person := models.NewPerson(c.Param("name"))
+		json, err = person.MarshalJson()
+
+		store.AddToDb([]byte("people"), []byte("asdf"), json)
+
+		return respond(c, err, json)
+	}
+}
+
+/*
+func GetPeople() echo.HandlerFunc {
+	var err error
+
+	return func(c echo.Context) error {
+		people := []models.Person
+	}
+}
+*/
+
+func GetPerson(my interface{}) echo.HandlerFunc {
+	var err error
+
+	return func(c echo.Context) error {
+		err = store.RetrieveFromDb([]byte(c.Param("bucket")), []byte(c.Param("key")))
+
+		return respond(c, err, []byte("FOUND"))
+	}
 }

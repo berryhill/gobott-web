@@ -11,17 +11,17 @@ var DB bolt.DB
 var world = []byte("world")
 
 func init() {
-	DB, err := bolt.Open("/home/Coding/gopath/src/github.com/gobott-web", 0644, nil)
+}
+
+func AddToDb(bucket []byte, key []byte, value []byte) error {
+	DB, err := bolt.Open("my.db", 0644, nil)
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	defer DB.Close()
-}
-
-func AddToDb(bucket []byte, key []byte, value []byte) error {
-	err := DB.Update(func(tx *bolt.Tx) error {
+	err = DB.Update(func(tx *bolt.Tx) error {
 		bucket, err := tx.CreateBucketIfNotExists(bucket)
 		if err != nil {
 			return err
@@ -42,11 +42,19 @@ func AddToDb(bucket []byte, key []byte, value []byte) error {
 	return nil
 }
 
-func RetrieveFromDb(input []byte, key []byte) error {
-	err := DB.View(func(tx *bolt.Tx) error {
-		bucket := tx.Bucket(world)
+func RetrieveFromDb(bucket []byte, key []byte) error {
+	db, err := bolt.Open("my.db", 0600, nil)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer db.Close()
+
+	err = db.View(func(tx *bolt.Tx) error {
+		bucket := tx.Bucket(bucket)
 		if bucket == nil {
-			return fmt.Errorf("Bucket %q not found!", world)
+			return fmt.Errorf("Bucket %q not found!", key)
 		}
 
 		val := bucket.Get(key)
