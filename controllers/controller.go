@@ -3,26 +3,12 @@ package controllers
 import (
 	"fmt"
 	"net/http"
-	//"log"
 
 	"github.com/labstack/echo"
-	//"github.com/boltdb/bolt"
 
 	"github.com/gobott-web/models"
 	"github.com/gobott-web/store"
 )
-
-/*
-func init() {
-	db, err := bolt.Open("my.db", 0600, nil)
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	defer db.Close()
-}
-*/
 
 func respond(c echo.Context, err error, result interface{}) error {
 	var msg string

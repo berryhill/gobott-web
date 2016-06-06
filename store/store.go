@@ -7,21 +7,21 @@ import (
 	"github.com/boltdb/bolt"
 )
 
-var DB bolt.DB
-var world = []byte("world")
-
-func init() {
-}
-
-func AddToDb(bucket []byte, key []byte, value []byte) error {
-	DB, err := bolt.Open("my.db", 0644, nil)
+func openDb() (*bolt.DB, error) {
+	db, err := bolt.Open("my.db", 0600, nil)
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	defer DB.Close()
-	err = DB.Update(func(tx *bolt.Tx) error {
+	return db, err
+}
+
+func AddToDb(bucket []byte, key []byte, value []byte) error {
+	db, err := openDb()
+	defer db.Close()
+
+	err = db.Update(func(tx *bolt.Tx) error {
 		bucket, err := tx.CreateBucketIfNotExists(bucket)
 		if err != nil {
 			return err
@@ -39,16 +39,15 @@ func AddToDb(bucket []byte, key []byte, value []byte) error {
 		log.Fatal(err)
 	}
 
-	return nil
-}
-
-func RetrieveFromDb(bucket []byte, key []byte) error {
-	db, err := bolt.Open("my.db", 0600, nil)
-
-	if err != nil {
+	if err = db.Close(); err != nil {
 		log.Fatal(err)
 	}
 
+	return err
+}
+
+func RetrieveFromDb(bucket []byte, key []byte) error {
+	db, err := openDb()
 	defer db.Close()
 
 	err = db.View(func(tx *bolt.Tx) error {
@@ -67,5 +66,9 @@ func RetrieveFromDb(bucket []byte, key []byte) error {
 		log.Fatal(err)
 	}
 
-	return nil
+	if err = db.Close(); err != nil {
+		log.Fatal(err)
+	}
+
+	return err
 }

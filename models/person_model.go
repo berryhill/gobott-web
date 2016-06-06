@@ -16,3 +16,8 @@ func (p *Person) MarshalJson() ([]byte, error) {
 	json, err := json.Marshal(p)
 	return json, err
 }
+
+func (p *Person) Save() {
+	//TODO implement
+}
+
