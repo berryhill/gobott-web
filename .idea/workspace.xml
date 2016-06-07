@@ -4,10 +4,11 @@
     <list default="true" id="8a0f7a9a-af39-4eda-9732-5b80dc31dd34" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my.db" afterPath="$PROJECT_DIR$/my.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot/web_operator.go" afterPath="$PROJECT_DIR$/bot/web_operator.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/controller.go" afterPath="$PROJECT_DIR$/controllers/controller.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.go" afterPath="$PROJECT_DIR$/main.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/person_model.go" afterPath="$PROJECT_DIR$/models/person_model.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/store/store.go" afterPath="$PROJECT_DIR$/store/store.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mqtt/web_operator.go" afterPath="$PROJECT_DIR$/mqtt/web_operator.go" />
     </list>
     <ignored path="gobott-web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +32,8 @@
             <file leaf-file-name="store.go" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/store/store.go">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="375">
-                    <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+                  <state relative-caret-position="315">
+                    <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
                     <folding>
                       <element signature="e#15#66#0" expanded="true" />
                     </folding>
@@ -51,13 +52,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+            <state relative-caret-position="420">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
-                <element signature="e#14#142#0" expanded="true" />
+                <element signature="e#14#174#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,10 +67,10 @@
       <file leaf-file-name="person_model.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/person_model.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="540">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
-                <element signature="e#16#38#0" expanded="true" />
+                <element signature="e#16#83#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,8 +79,8 @@
       <file leaf-file-name="controller.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/controller.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
+            <state relative-caret-position="1170">
+              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding>
                 <element signature="e#21#143#0" expanded="true" />
               </folding>
@@ -90,20 +91,10 @@
       <file leaf-file-name="web_operator.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot/web_operator.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web_operator.go" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mqtt/web_operator.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+            <state relative-caret-position="30">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
               <folding>
-                <element signature="e#14#82#0" expanded="true" />
+                <element signature="e#13#165#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -112,8 +103,8 @@
       <file leaf-file-name="bot.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot/bot.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
               <folding>
                 <element signature="e#13#55#0" expanded="true" />
               </folding>
@@ -144,13 +135,13 @@
         <option value="$PROJECT_DIR$/.idea/controllers/web_operator.go" />
         <option value="$PROJECT_DIR$/.idea/controllers/bot.go" />
         <option value="$PROJECT_DIR$/controllers/test.go" />
-        <option value="$PROJECT_DIR$/bot/web_operator.go" />
-        <option value="$PROJECT_DIR$/controllers/controller.go" />
-        <option value="$PROJECT_DIR$/store/store.go" />
-        <option value="$PROJECT_DIR$/bot/bot.go" />
-        <option value="$PROJECT_DIR$/models/person_model.go" />
         <option value="$PROJECT_DIR$/mqtt/web_operator.go" />
         <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/store/store.go" />
+        <option value="$PROJECT_DIR$/models/person_model.go" />
+        <option value="$PROJECT_DIR$/controllers/controller.go" />
+        <option value="$PROJECT_DIR$/bot/bot.go" />
+        <option value="$PROJECT_DIR$/bot/web_operator.go" />
       </list>
     </option>
   </component>
@@ -217,20 +208,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gobott-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gobott-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gobott-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mqtt" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -699,12 +676,12 @@
       <workItem from="1464878601974" duration="218000" />
       <workItem from="1464902011136" duration="3877000" />
       <workItem from="1464910175135" duration="9556000" />
-      <workItem from="1465245451418" duration="6688000" />
+      <workItem from="1465245451418" duration="11542000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29228000" />
+    <option name="totallyTimeSpent" value="34082000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="864" y="23" width="1056" height="1053" extended-state="0" />
@@ -759,7 +736,7 @@
         <state relative-caret-position="45">
           <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
           <folding>
-            <element signature="e#14#142#0" expanded="true" />
+            <element signature="e#14#174#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -789,7 +766,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#14#142#0" expanded="true" />
+            <element signature="e#14#174#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -816,7 +793,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#14#142#0" expanded="true" />
+            <element signature="e#14#174#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -845,50 +822,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
+    <entry file="file://$PROJECT_DIR$/mqtt/web_operator.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+        <state relative-caret-position="570">
+          <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
           <folding>
-            <element signature="e#14#142#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot/bot.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="e#13#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/person_model.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="e#16#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/controller.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
-          <folding>
-            <element signature="e#21#143#0" expanded="true" />
+            <element signature="e#14#82#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/store/store.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        <state relative-caret-position="315">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
           <folding>
             <element signature="e#15#66#0" expanded="true" />
           </folding>
@@ -897,18 +844,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot/web_operator.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="30">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="e#13#165#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mqtt/web_operator.go">
+    <entry file="file://$PROJECT_DIR$/controllers/controller.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+        <state relative-caret-position="1170">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding>
-            <element signature="e#14#82#0" expanded="true" />
+            <element signature="e#21#143#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/person_model.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="e#16#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/bot.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+          <folding>
+            <element signature="e#13#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#174#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,6 +1,11 @@
 package models
 
-import "encoding/json"
+import (
+ 	"encoding/json"
+	"log"
+
+	"github.com/gobott-web/store"
+)
 
 type Person struct {
 	Name 		string                `json:"name"`
@@ -17,7 +22,15 @@ func (p *Person) MarshalJson() ([]byte, error) {
 	return json, err
 }
 
-func (p *Person) Save() {
-	//TODO implement
+func (p *Person) Save() ([]byte, error) {
+	json, err := p.MarshalJson()
+	store.AddToDb([]byte("people"), []byte("asdf"), json)
+
+	if err != nil {
+		log.Fatal(err)
+		return []byte("ERROR"), err
+	}
+
+	return json, nil
 }
 

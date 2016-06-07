@@ -43,19 +43,15 @@ func Ping(my interface{}) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		err = nil
 		str := "hey"
+
 		return respond(c, err, str)
 	}
 }
 
 func AddPerson(my interface{}) echo.HandlerFunc {
-	var err error
-	var json []byte
-
 	return func(c echo.Context) error {
 		person := models.NewPerson(c.Param("name"))
-		json, err = person.MarshalJson()
-
-		store.AddToDb([]byte("people"), []byte("asdf"), json)
+		json, err := person.Save()
 
 		return respond(c, err, json)
 	}
@@ -72,11 +68,11 @@ func GetPeople() echo.HandlerFunc {
 */
 
 func GetPerson(my interface{}) echo.HandlerFunc {
-	var err error
-
 	return func(c echo.Context) error {
-		err = store.RetrieveFromDb([]byte(c.Param("bucket")), []byte(c.Param("key")))
+		err := store.RetrieveFromDb([]byte(c.Param("bucket")), []byte(c.Param("key")))
 
 		return respond(c, err, []byte("FOUND"))
 	}
 }
+
+
