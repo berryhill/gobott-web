@@ -7,7 +7,7 @@ import (
 	"github.com/labstack/echo/engine/standard"
 
 	"github.com/gobott-web/controllers"
-	//"github.com/gobott-web/mqtt"
+	"github.com/gobott-web/mqtt"
 )
 
 func main() {
@@ -17,7 +17,7 @@ func main() {
 	e.Get("/add_person/:name", controllers.AddPerson("Hello"))
 	e.Get("/get_person/:bucket/:key", controllers.GetPerson("Hello"))
 
-	//mqtt.StartMqttClient()
+	mqtt.StartMqttClient()
 
 	fmt.Println("Running a Server on localhost:1323")
 	e.Run(standard.New(":1323"))

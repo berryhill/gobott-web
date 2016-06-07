@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	MQTT "github.com/eclipse/paho.mqtt.golang"
+	MQTT "git.eclipse.org/gitroot/paho/org.eclipse.paho.mqtt.golang.git"
 )
 
 //define a function for the default message handler
