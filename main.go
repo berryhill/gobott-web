@@ -26,3 +26,4 @@ func main() {
 func init() {
 	//bot.NewBot()
 }
+

@@ -7,27 +7,22 @@ import (
 	MQTT "git.eclipse.org/gitroot/paho/org.eclipse.paho.mqtt.golang.git"
 )
 
-//define a function for the default message handler
 var f MQTT.MessageHandler = func(client *MQTT.Client, msg MQTT.Message) {
 	fmt.Printf("TOPIC: %s\n", msg.Topic())
 	fmt.Printf("MSG: %s\n", msg.Payload())
 }
 
 func StartMqttClient() {
-	//create a ClientOptions struct setting the broker address, clientid, turn
-	//off trace output and set the default message handler
 	opts := MQTT.NewClientOptions().AddBroker("tcp://test.mosquitto.org:1883")
 	opts.SetClientID("web_operator")
 	opts.SetDefaultPublishHandler(f)
 
-	//create and start a client using the above ClientOptions
 	c := MQTT.NewClient(opts)
+
 	if token := c.Connect(); token.Wait() && token.Error() != nil {
 		panic(token.Error())
 	}
 
-	//subscribe to the topic /go-mqtt/sample and request messages to be delivered
-	//at a maximum qos of zero, wait for the receipt to confirm the subscription
 	if token := c.Subscribe("bot_to_web", 0, nil); token.Wait() && token.Error() != nil {
 		fmt.Println(token.Error())
 
