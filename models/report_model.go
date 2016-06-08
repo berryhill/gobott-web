@@ -43,6 +43,8 @@ func (r *Report) Save() error {
 		return err
 	}
 
+	fmt.Println("Report Saved")
+
 	return nil
 }
 
