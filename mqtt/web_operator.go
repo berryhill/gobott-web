@@ -5,11 +5,17 @@ import (
 	"os"
 
 	MQTT "git.eclipse.org/gitroot/paho/org.eclipse.paho.mqtt.golang.git"
+
+	"github.com/gobott-web/models"
 )
 
 var f MQTT.MessageHandler = func(client *MQTT.Client, msg MQTT.Message) {
 	fmt.Printf("TOPIC: %s\n", msg.Topic())
 	fmt.Printf("MSG: %s\n", msg.Payload())
+
+	if msg.Topic() == "bot_to_web_report" {
+		HandleReport(msg)
+	}
 }
 
 func StartMqttClient() {
@@ -48,5 +54,20 @@ func StartMqttClient() {
 
 	c.Disconnect(250)
 */
-
 }
+
+func HandleReport (msg MQTT.Message) error {
+	report := new(models.Report)
+
+	if err := report.UnmarshalJson(msg.Payload()); err != nil {
+		return fmt.Errorf("error unmarshaling report: %v", err)
+	}
+
+	if err := report.Save(); err != nil {
+		return fmt.Errorf("error saving report: %v", err)
+	}
+
+	return nil
+}
+
+
