@@ -10,7 +10,7 @@ import (
 	"github.com/gobott-web/store"
 )
 
-func respond(c echo.Context, err error, result interface{}) error {
+func Respond(c echo.Context, err error, result interface{}) error {
 	var msg string
 
 	if err != nil {
@@ -44,7 +44,7 @@ func Ping(my interface{}) echo.HandlerFunc {
 		err = nil
 		str := "hey"
 
-		return respond(c, err, str)
+		return Respond(c, err, str)
 	}
 }
 
@@ -53,7 +53,7 @@ func AddPerson(my interface{}) echo.HandlerFunc {
 		person := models.NewPerson(c.Param("name"))
 		json, err := person.Save()
 
-		return respond(c, err, json)
+		return Respond(c, err, json)
 	}
 }
 
@@ -71,7 +71,7 @@ func GetPerson(my interface{}) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		err := store.RetrieveFromDb([]byte(c.Param("bucket")), []byte(c.Param("key")))
 
-		return respond(c, err, []byte("FOUND"))
+		return Respond(c, err, []byte("FOUND"))
 	}
 }
 

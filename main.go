@@ -17,6 +17,8 @@ func main() {
 	e.Get("/add_person/:name", controllers.AddPerson("Hello"))
 	e.Get("/get_person/:bucket/:key", controllers.GetPerson("Hello"))
 
+	e.Get("/get_reports", controllers.GetReports("Reports"))
+
 	mqtt.StartMqttClient()
 
 	fmt.Println("Running a Server on localhost:1323")

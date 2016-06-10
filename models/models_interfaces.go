@@ -1,6 +1,5 @@
 package models
 
-/*
 type Sensor interface {
 	Set()
 	Listen()
@@ -8,4 +7,3 @@ type Sensor interface {
 	UnmarshhalJson()
 	Save()
 }
-*/

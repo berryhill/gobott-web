@@ -5,7 +5,6 @@ import (
 	"fmt"
 )
 
-
 type PushButton struct {
 	BaseModel
 	State 		bool                `json:"state"`

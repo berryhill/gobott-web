@@ -72,3 +72,36 @@ func RetrieveFromDb(bucket []byte, key []byte) error {
 
 	return err
 }
+
+func RetrieveAllFromDb(bucket []byte, key []byte) error {
+	db, err := openDb()
+	defer db.Close()
+
+	err = db.View(func(tx *bolt.Tx) error {
+		b := tx.Bucket(bucket)
+		c := b.Cursor()
+
+		for k, v := c.First(); k != nil; k, v = c.Next() {
+			fmt.Printf("key=%s, value=%s\n", k, v)
+		}
+
+		k, v := c.First()
+		fmt.Printf("key=%s, value=%s\n", k, v)
+
+		k, v = c.Next()
+		fmt.Printf("key=%s, value=%s\n", k, v)
+
+		return nil
+	})
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if err = db.Close(); err != nil {
+		log.Fatal(err)
+	}
+
+	return err
+}
+
