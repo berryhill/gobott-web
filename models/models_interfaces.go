@@ -1,9 +1,9 @@
 package models
 
 type Sensor interface {
-	Set()
-	Listen()
-	MarshalJson()
-	UnmarshhalJson()
-	Save()
+	Set(int32)
+	Listen() int32
+	MarshalJson() ([]byte, error)
+	UnmarshhalJson(data []byte) error
+	Save() error
 }

@@ -13,11 +13,12 @@ import (
 func main() {
 	e := echo.New()
 
-	e.Get("/ping", controllers.Ping("Hello"))
-	e.Get("/add_person/:name", controllers.AddPerson("Hello"))
-	e.Get("/get_person/:bucket/:key", controllers.GetPerson("Hello"))
+	e.Get("/ping", controllers.Ping("Ping"))
+	e.Get("/add_person/:name", controllers.AddPerson("AddPerson/:Name"))
+	e.Get("/get_person/:bucket/:key", controllers.GetPerson("GetPerson"))
+	e.Get("/get_people", controllers.GetPeople("GetPeople"))
 
-	e.Get("/get_reports", controllers.GetReports("Reports"))
+	e.Get("/get_all_reports", controllers.GetAllReports("GetAllReports"))
 
 	mqtt.StartMqttClient()
 

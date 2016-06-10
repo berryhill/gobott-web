@@ -24,7 +24,7 @@ func (p *Person) MarshalJson() ([]byte, error) {
 
 func (p *Person) Save() ([]byte, error) {
 	json, err := p.MarshalJson()
-	store.AddToDb([]byte("people"), []byte("asdf"), json)
+	store.AddToDb([]byte("people"), json)
 
 	if err != nil {
 		log.Fatal(err)

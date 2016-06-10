@@ -36,6 +36,14 @@ func (as *AnalogSensor) MarshalJson() ([]byte, error) {
 	return json, err
 }
 
-func (as *AnalogSensor) UnmarshalJson() {
-	//TODO implement
+func (as *AnalogSensor) UnmarshalJson(data []byte) error {
+	if err := json.Unmarshal(data, &as); err != nil {
+		return fmt.Errorf("error unmarshaling report: %v", err)
+	}
+
+	return nil
+}
+
+func (as *AnalogSensor) Save() error {
+	return nil
 }

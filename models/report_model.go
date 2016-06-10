@@ -3,19 +3,21 @@ package models
 import (
 	"time"
 	"log"
-
-	"github.com/gobott-web/store"
 	"encoding/json"
 	"fmt"
+
+	"github.com/gobott-web/store"
 )
 
 type Report struct {
-	Date 		time.Time                `json:"date"`
+	Date 		time.Time               `json:"date"`
+	Machine 	*Machine           	`json:"machine"`
 }
 
-func NewReport() *Report {
+func NewReport(m *Machine) *Report {
 	r := new(Report)
 	r.Date = time.Now()
+	r.Machine = m
 
 	return r
 }
@@ -25,9 +27,7 @@ func (r *Report) MarshalJson() ([]byte, error) {
 }
 
 func (r *Report) UnmarshalJson(data []byte) error {
-	report := &Report{}
-
-	if err := json.Unmarshal(data, &report); err != nil {
+	if err := json.Unmarshal(data, &r); err != nil {
 		return fmt.Errorf("error unmarshaling report: %v", err)
 	}
 
@@ -36,7 +36,7 @@ func (r *Report) UnmarshalJson(data []byte) error {
 
 func (r *Report) Save() error {
 	json, err := r.MarshalJson()
-	store.AddToDb([]byte("reports"), []byte("report"), json)
+	store.AddToDb([]byte("reports"), json)
 
 	if err != nil {
 		log.Fatal(err)

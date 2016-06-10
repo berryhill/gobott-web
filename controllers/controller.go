@@ -75,4 +75,12 @@ func GetPerson(my interface{}) echo.HandlerFunc {
 	}
 }
 
+func GetPeople(my interface{}) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		err := store.RetrieveAllFromDb([]byte("people"), []byte("asdf"))
 
+		fmt.Println("Get People")
+
+		return Respond(c, err, []byte("FOUND"))
+	}
+}

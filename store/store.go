@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/boltdb/bolt"
+	"encoding/binary"
 )
 
 func openDb() (*bolt.DB, error) {
@@ -17,17 +18,28 @@ func openDb() (*bolt.DB, error) {
 	return db, err
 }
 
-func AddToDb(bucket []byte, key []byte, value []byte) error {
+func itob(v int) []byte {
+	b := make([]byte, 8)
+	binary.BigEndian.PutUint64(b, uint64(v))
+	return b
+}
+
+func AddToDb(bucket []byte, value []byte) error {
 	db, err := openDb()
 	defer db.Close()
 
 	err = db.Update(func(tx *bolt.Tx) error {
 		bucket, err := tx.CreateBucketIfNotExists(bucket)
+
 		if err != nil {
 			return err
 		}
 
+		id, _ := bucket.NextSequence()
+		key := itob(int(id))
+
 		err = bucket.Put(key, value)
+
 		if err != nil {
 			return err
 		}
@@ -85,12 +97,6 @@ func RetrieveAllFromDb(bucket []byte, key []byte) error {
 			fmt.Printf("key=%s, value=%s\n", k, v)
 		}
 
-		k, v := c.First()
-		fmt.Printf("key=%s, value=%s\n", k, v)
-
-		k, v = c.Next()
-		fmt.Printf("key=%s, value=%s\n", k, v)
-
 		return nil
 	})
 
@@ -105,3 +111,6 @@ func RetrieveAllFromDb(bucket []byte, key []byte) error {
 	return err
 }
 
+func DeleteBucket(bucket []byte) error {
+	return nil
+}
