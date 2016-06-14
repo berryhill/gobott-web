@@ -5,6 +5,14 @@ import (
 	"fmt"
 )
 
+type Sensor interface {
+	Set(int32)
+	Listen() int32
+	MarshalJson() ([]byte, error)
+	UnmarshalJson(data []byte) error
+	Save() error
+}
+
 type AnalogSensor struct {
 	BaseModel
 	Value 		int32                `json:"value"`

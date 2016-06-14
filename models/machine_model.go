@@ -12,6 +12,7 @@ type Machine struct {
 	BaseModel
 	Name			string                   `json:"name"`
 	Sensors 		[]*Sensor                `json:"sensors"`
+	Instructions 		[]*Instruction           `json:"instructions"`
 }
 
 func NewMachine(name string) *Machine {
