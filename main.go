@@ -14,9 +14,10 @@ func main() {
 	e := echo.New()
 
 	e.Get("/ping", controllers.Ping("Ping"))
-	e.Get("/add_person/:name", controllers.AddPerson("AddPerson/:Name"))
-	e.Get("/get_person/:bucket/:key", controllers.GetPerson("GetPerson"))
-	e.Get("/get_people", controllers.GetPeople("GetPeople"))
+
+	e.Get("/add_user/:name", controllers.AddUser("AddUser/:Name"))
+	e.Get("/get_user/:bucket/:key", controllers.GetUser("GetUser"))
+	e.Get("/get_user", controllers.GetUsers("GetUsers"))
 
 	e.Get("/get_all_reports", controllers.GetAllReports("GetAllReports"))
 
@@ -29,4 +30,3 @@ func main() {
 func init() {
 	//bot.NewBot()
 }
-

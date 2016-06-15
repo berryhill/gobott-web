@@ -48,10 +48,10 @@ func Ping(my interface{}) echo.HandlerFunc {
 	}
 }
 
-func AddPerson(my interface{}) echo.HandlerFunc {
+func AddUser(my interface{}) echo.HandlerFunc {
 	return func(c echo.Context) error {
-		person := models.NewPerson(c.Param("name"))
-		json, err := person.Save()
+		user := models.NewUser(c.Param("name"))
+		json, err := user.Save()
 
 		return Respond(c, err, json)
 	}
@@ -67,7 +67,7 @@ func GetPeople() echo.HandlerFunc {
 }
 */
 
-func GetPerson(my interface{}) echo.HandlerFunc {
+func GetUser(my interface{}) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		err := store.RetrieveFromDb([]byte(c.Param("bucket")), []byte(c.Param("key")))
 
@@ -75,7 +75,7 @@ func GetPerson(my interface{}) echo.HandlerFunc {
 	}
 }
 
-func GetPeople(my interface{}) echo.HandlerFunc {
+func GetUsers(my interface{}) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		err := store.RetrieveAllFromDb([]byte("people"), []byte("asdf"))
 

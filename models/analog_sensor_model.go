@@ -3,19 +3,16 @@ package models
 import (
 	"encoding/json"
 	"fmt"
-)
+	"log"
 
-type Sensor interface {
-	Set(int32)
-	Listen() int32
-	MarshalJson() ([]byte, error)
-	UnmarshalJson(data []byte) error
-	Save() error
-}
+	"github.com/gobott-web/store"
+)
 
 type AnalogSensor struct {
 	BaseModel
 	Value 		int32                `json:"value"`
+	Peak		int32                `json:"peak"`
+	floor 		int32                `json:"floor"`
 }
 
 func NewAnalogSensor (name string) *AnalogSensor {
@@ -53,5 +50,13 @@ func (as *AnalogSensor) UnmarshalJson(data []byte) error {
 }
 
 func (as *AnalogSensor) Save() error {
+	json, err := as.MarshalJson()
+	store.AddToDb([]byte("Sensors"), json)
+
+	if err != nil {
+		log.Fatal(err)
+		return err
+	}
+
 	return nil
 }

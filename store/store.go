@@ -3,9 +3,11 @@ package store
 import (
 	"fmt"
 	"log"
+	"encoding/binary"
 
 	"github.com/boltdb/bolt"
-	"encoding/binary"
+
+	//"github.com/gobott-web/models"
 )
 
 func openDb() (*bolt.DB, error) {
@@ -86,7 +88,7 @@ func RetrieveFromDb(bucket []byte, key []byte) error {
 	return err
 }
 
-func RetrieveAllFromDb(bucket []byte, key []byte) error {
+func RetrieveAllFromDb(model interface{}, bucket []byte) /*(map[string][]byte, error)*/ error {
 	db, err := openDb()
 	defer db.Close()
 
@@ -94,7 +96,11 @@ func RetrieveAllFromDb(bucket []byte, key []byte) error {
 		b := tx.Bucket(bucket)
 		c := b.Cursor()
 
+		//var list []interface{}
 		for k, v := c.First(); k != nil; k, v = c.Next() {
+			//retrieved := new(model)
+			//list = append(list, )
+
 			fmt.Printf("key=%s, value=%s\n", k, v)
 		}
 
@@ -109,9 +115,10 @@ func RetrieveAllFromDb(bucket []byte, key []byte) error {
 		log.Fatal(err)
 	}
 
-	return err
+	return nil
 }
 
 func DeleteBucket(bucket []byte) error {
+	//TODO implement
 	return nil
 }
