@@ -9,6 +9,8 @@ import (
 	"github.com/gobott-web/models"
 )
 
+var MqttClient *MQTT.Client
+
 var f MQTT.MessageHandler = func(client *MQTT.Client, msg MQTT.Message) {
 	fmt.Printf("TOPIC: %s\n", msg.Topic())
 	fmt.Printf("MSG: %s\n", msg.Payload())
@@ -22,13 +24,13 @@ func StartMqttClient() {
 	opts.SetClientID("web_operator")
 	opts.SetDefaultPublishHandler(f)
 
-	c := MQTT.NewClient(opts)
+	MqttClient = MQTT.NewClient(opts)
 
-	if token := c.Connect(); token.Wait() && token.Error() != nil {
+	if token := MqttClient.Connect(); token.Wait() && token.Error() != nil {
 		panic(token.Error())
 	}
 
-	if token := c.Subscribe("bot_to_web_report", 0, nil); token.Wait() && token.Error() != nil {
+	if token := MqttClient.Subscribe("bot_to_web", 0, nil); token.Wait() && token.Error() != nil {
 		fmt.Println(token.Error())
 
 		os.Exit(1)
@@ -52,4 +54,12 @@ func HandleReport (msg MQTT.Message) error {
 	return nil
 }
 
+func Send(message []byte) error {
+	token := MqttClient.Publish("web_to_bot", 0, false, message)
+	token.Wait()
+
+	fmt.Println("Sending Message")
+
+	return nil
+}
 

@@ -5,10 +5,15 @@ type Instruction interface {
 	GetDescription() string
 }
 
+type BaseInstruction struct {
+	Description 		string                `json:"description"`
+	Condition 		bool                  `json:"condition"`
+	Alerts 			[]*Alert              `json:"alerts"`
+}
+
 type TrueInstruction struct {
 	BaseModel
-	Description 		string                `json:"description"`
-	Condition 		bool                `json:"condition"`
+	BaseInstruction
 }
 
 func (ti *TrueInstruction) GetName() string {

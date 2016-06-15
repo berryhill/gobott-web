@@ -21,6 +21,9 @@ func main() {
 
 	e.Get("/get_all_reports", controllers.GetAllReports("GetAllReports"))
 
+	e.Get("/resume_report", controllers.ResumeReport(""))
+	e.Get("/halt_report", controllers.HaltReport(""))
+
 	mqtt.StartMqttClient()
 
 	fmt.Println("Running a Server on localhost:1323")
