@@ -21,8 +21,9 @@ func main() {
 
 	e.Get("/get_all_reports", controllers.GetAllReports("GetAllReports"))
 
-	e.Get("/resume_report", controllers.ResumeReport(""))
-	e.Get("/halt_report", controllers.HaltReport(""))
+	e.Get("/resume_report", controllers.ResumeReport("Resumer Report"))
+	e.Get("/halt_report", controllers.HaltReport("Halt Report"))
+	e.Get("/timer/:seconds", controllers.SetTimer("Set Timer"))
 
 	mqtt.StartMqttClient()
 
