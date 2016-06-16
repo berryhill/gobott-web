@@ -6,7 +6,7 @@ import (
 	"github.com/gobott-web/store"
 	"github.com/gobott-web/models"
 	"github.com/gobott-web/mqtt"
-	"strconv"
+	//"strconv"
 )
 
 func GetAllReports(my interface{}) echo.HandlerFunc {
@@ -36,8 +36,10 @@ func HaltReport(my interface{}) echo.HandlerFunc {
 
 func SetTimer(my interface{}) echo.HandlerFunc {
 	return func(c echo.Context) error {
-		seconds, _ := strconv.Atoi(c.Param("seconds"))
-		err := mqtt.Send([]byte(string(seconds)))
+		//seconds, _ := strconv.Atoi(c.Param("seconds"))
+		seconds := c.Param("seconds")
+		message := ("timer " + seconds)
+		err := mqtt.Send([]byte(string(message)))
 
 		return Respond(c, err, []byte("SetTimer"))
 	}

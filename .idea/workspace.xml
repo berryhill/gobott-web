@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a0f7a9a-af39-4eda-9732-5b80dc31dd34" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/report.go" afterPath="$PROJECT_DIR$/controllers/report.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.go" afterPath="$PROJECT_DIR$/main.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/alert_model.go" afterPath="$PROJECT_DIR$/models/alert_model.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/analog_sensor_model.go" afterPath="$PROJECT_DIR$/models/analog_sensor_model.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/base_model.go" afterPath="$PROJECT_DIR$/models/base_model.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/machine_model.go" afterPath="$PROJECT_DIR$/models/machine_model.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/report_model.go" afterPath="$PROJECT_DIR$/models/report_model.go" />
     </list>
     <ignored path="gobott-web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,12 +30,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="alert_model.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="alert_model.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/alert_model.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="62" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
-              <folding />
+            <state relative-caret-position="406">
+              <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+              <folding>
+                <element signature="e#16#45#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -38,33 +45,9 @@
       <file leaf-file-name="instruction_model.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/instruction_model.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="105">
+              <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web_operator.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mqtt/web_operator.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
-              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-              <folding>
-                <element signature="e#14#141#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="analog_sensor_model.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/analog_sensor_model.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
-              <folding>
-                <element signature="e#16#89#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -72,7 +55,7 @@
       <file leaf-file-name="boolean_sensor_model.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/boolean_sensor_model.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
+            <state relative-caret-position="645">
               <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding>
                 <element signature="e#16#89#0" expanded="true" />
@@ -81,13 +64,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/controller.go">
+      <file leaf-file-name="analog_sensor_model.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/analog_sensor_model.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="701">
-              <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="55" />
+            <state relative-caret-position="300">
+              <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
               <folding>
-                <element signature="e#21#143#0" expanded="true" />
+                <element signature="e#16#113#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,20 +79,30 @@
       <file leaf-file-name="report_model.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/report_model.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+            <state relative-caret-position="330">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
-                <element signature="e#16#97#0" expanded="true" />
+                <element signature="e#16#121#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="machine_model.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/machine_model.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+            <state relative-caret-position="480">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
                 <element signature="e#14#172#0" expanded="true" />
               </folding>
@@ -120,10 +113,22 @@
       <file leaf-file-name="report.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/report.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="55" selection-start-line="39" selection-start-column="55" selection-end-line="39" selection-end-column="55" />
+            <state relative-caret-position="885">
+              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding>
-                <element signature="e#21#164#0" expanded="true" />
+                <element signature="e#21#166#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base_model.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/base_model.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <element signature="e#16#45#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -165,26 +170,26 @@
         <option value="$PROJECT_DIR$/bot/web_operator.go" />
         <option value="$PROJECT_DIR$/bot/bot.go" />
         <option value="$PROJECT_DIR$/models/sensor_model.go" />
-        <option value="$PROJECT_DIR$/models/base_model.go" />
         <option value="$PROJECT_DIR$/models/interfaces.go" />
         <option value="$PROJECT_DIR$/mqtt/report_operator.go" />
         <option value="$PROJECT_DIR$/models/bot_model.go" />
         <option value="$PROJECT_DIR$/models/person_model.go" />
-        <option value="$PROJECT_DIR$/models/report_model.go" />
-        <option value="$PROJECT_DIR$/models/machine_model.go" />
         <option value="$PROJECT_DIR$/models/models_interfaces.go" />
         <option value="$PROJECT_DIR$/models/button_model.go" />
-        <option value="$PROJECT_DIR$/models/analog_sensor_model.go" />
         <option value="$PROJECT_DIR$/models/boolean_sensor_model.go" />
         <option value="$PROJECT_DIR$/store/store.go" />
         <option value="$PROJECT_DIR$/controllers/controller.go" />
         <option value="$PROJECT_DIR$/models/user_model.go" />
-        <option value="$PROJECT_DIR$/models/alert_model.go" />
-        <option value="$PROJECT_DIR$/models/instruction_model.go" />
         <option value="$PROJECT_DIR$/mqtt/web_operator.go" />
         <option value="$PROJECT_DIR$/models/timer_model.go" />
-        <option value="$PROJECT_DIR$/controllers/report.go" />
         <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/controllers/report.go" />
+        <option value="$PROJECT_DIR$/models/instruction_model.go" />
+        <option value="$PROJECT_DIR$/models/base_model.go" />
+        <option value="$PROJECT_DIR$/models/report_model.go" />
+        <option value="$PROJECT_DIR$/models/machine_model.go" />
+        <option value="$PROJECT_DIR$/models/analog_sensor_model.go" />
+        <option value="$PROJECT_DIR$/models/alert_model.go" />
       </list>
     </option>
   </component>
@@ -202,10 +207,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="798" />
     <option name="y" value="23" />
     <option name="width" value="1124" />
-    <option name="height" value="1053" />
+    <option name="height" value="773" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -235,9 +239,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -300,13 +303,14 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gobott" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../rails/railstest/railstest" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
@@ -772,15 +776,17 @@
       <workItem from="1465504824990" duration="11450000" />
       <workItem from="1465771943242" duration="259000" />
       <workItem from="1465937555191" duration="12544000" />
-      <workItem from="1466024630809" duration="11121000" />
+      <workItem from="1466024630809" duration="13333000" />
+      <workItem from="1466112522635" duration="1522000" />
+      <workItem from="1466116982862" duration="1740000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93701000" />
+    <option name="totallyTimeSpent" value="99175000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="798" y="23" width="1124" height="1053" extended-state="0" />
+    <frame x="0" y="23" width="1124" height="773" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -857,9 +863,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="e#15#120#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -875,7 +878,7 @@
         <state relative-caret-position="495">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
-            <element signature="e#14#141#0" expanded="true" />
+            <element signature="e#14#141#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -885,7 +888,7 @@
         <state relative-caret-position="30">
           <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
           <folding>
-            <element signature="e#16#89#0" expanded="true" />
+            <element signature="e#16#113#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -940,7 +943,7 @@
         <state relative-caret-position="300">
           <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
           <folding>
-            <element signature="e#14#141#0" expanded="true" />
+            <element signature="e#14#141#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -974,7 +977,7 @@
         <state relative-caret-position="60">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <element signature="e#14#141#0" expanded="true" />
+            <element signature="e#14#141#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -984,7 +987,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#16#89#0" expanded="true" />
+            <element signature="e#16#113#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -994,7 +997,7 @@
         <state relative-caret-position="255">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="e#16#97#0" expanded="true" />
+            <element signature="e#16#121#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1088,7 +1091,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
           <caret line="100" column="4" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1106,25 +1108,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/base_model.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/machine_model.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="47" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/go/src/encoding/json/encode.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
           <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1132,9 +1119,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding>
-            <element signature="e#15#120#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1142,54 +1126,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="e#16#83#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/alert_model.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="62" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/analog_sensor_model.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
-          <folding>
-            <element signature="e#16#89#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/controller.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
+        <state relative-caret-position="660">
           <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="55" />
           <folding>
-            <element signature="e#21#143#0" expanded="true" />
+            <element signature="e#21#143#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/instruction_model.go">
+    <entry file="file://$PROJECT_DIR$/mqtt/web_operator.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="525">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#141#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/boolean_sensor_model.go">
+    <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="480">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
-            <element signature="e#16#89#0" expanded="true" />
+            <element signature="e#14#172#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1202,42 +1167,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mqtt/web_operator.go">
+    <entry file="file://$PROJECT_DIR$/controllers/report.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state relative-caret-position="885">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding>
-            <element signature="e#14#141#0" expanded="true" />
+            <element signature="e#21#166#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/report_model.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+        <state relative-caret-position="330">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
-            <element signature="e#16#97#0" expanded="true" />
+            <element signature="e#16#121#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/report.go">
+    <entry file="file://$PROJECT_DIR$/models/machine_model.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="55" selection-start-line="39" selection-start-column="55" selection-end-line="39" selection-end-column="55" />
+        <state relative-caret-position="225">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/instruction_model.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/boolean_sensor_model.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
-            <element signature="e#21#164#0" expanded="true" />
+            <element signature="e#16#89#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
+    <entry file="file://$PROJECT_DIR$/models/base_model.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+        <state relative-caret-position="135">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <element signature="e#14#172#0" expanded="true" />
+            <element signature="e#16#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/analog_sensor_model.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+          <folding>
+            <element signature="e#16#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/alert_model.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+          <folding>
+            <element signature="e#16#45#0" expanded="true" />
           </folding>
         </state>
       </provider>

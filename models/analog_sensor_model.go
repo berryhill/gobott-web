@@ -6,6 +6,7 @@ import (
 	"log"
 
 	"github.com/gobott-web/store"
+	"gopkg.in/mgo.v2/bson"
 )
 
 type AnalogSensor struct {
@@ -18,6 +19,7 @@ type AnalogSensor struct {
 func NewAnalogSensor (name string) *AnalogSensor {
 	as := new(AnalogSensor)
 	as.Name = name
+	as.Id = bson.NewObjectId()
 
 	return as
 }

@@ -1,5 +1,7 @@
 package models
 
+import "gopkg.in/mgo.v2/bson"
+
 type Alert interface {
 	Run() error
 	GetDescription() string
@@ -11,6 +13,16 @@ type EmailAlert struct {
 	Name 		string                `json:"name"`
 	Description 	string                `json:"description"`
 	Message 	string                `json:"message"`
+}
+
+func NewEmailAlert(name string, description string, message string) *EmailAlert {
+	ea := new(EmailAlert)
+	ea.Id = bson.NewObjectId()
+	ea.Name = name
+	ea.Description = description
+	ea.Message = message
+
+	return ea
 }
 
 func (ea *EmailAlert) Run() error {

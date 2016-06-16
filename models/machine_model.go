@@ -6,6 +6,7 @@ import (
 	"log"
 
 	"github.com/gobott-web/store"
+	"gopkg.in/mgo.v2/bson"
 )
 
 type Machine struct {
@@ -17,6 +18,7 @@ type Machine struct {
 
 func NewMachine(name string) *Machine {
 	m := new(Machine)
+	m.Id = bson.NewObjectId()
 	m.Name = name
 
 	return m
