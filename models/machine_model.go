@@ -13,6 +13,7 @@ type Machine struct {
 	BaseModel
 	Name			string                   `json:"name"`
 	Sensors 		[]*Sensor                `json:"sensors"`
+	SensorIds 		[]bson.ObjectId          `json:"sensor_ids"`
 	Instructions 		[]*Instruction           `json:"instructions"`
 }
 
@@ -20,6 +21,8 @@ func NewMachine(name string) *Machine {
 	m := new(Machine)
 	m.Id = bson.NewObjectId()
 	m.Name = name
+	bson := bson.NewObjectId()
+	m.SensorIds = append(m.SensorIds, bson)
 
 	return m
 }
@@ -52,6 +55,7 @@ func (m *Machine) Save() error {
 
 func (m *Machine) AddSensor(s *Sensor) error {
 	m.Sensors = append(m.Sensors, s)
+	//m.SensorIds = append(m.SensorIds, s.Id)
 
 	return nil
 }

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	//"net/http"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/engine/standard"
@@ -13,7 +14,9 @@ import (
 func main() {
 	e := echo.New()
 
-	e.Get("/ping", controllers.Ping("Ping"))
+	//e.Static("/index", http.FileServer(http.Dir("index")))
+
+	e.Get("/ping", controllers.Ping("PING"))
 
 	e.Get("/add_user/:name", controllers.AddUser("AddUser/:Name"))
 	e.Get("/get_user/:bucket/:key", controllers.GetUser("GetUser"))
