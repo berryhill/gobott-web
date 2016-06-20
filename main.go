@@ -14,7 +14,7 @@ import (
 func main() {
 	e := echo.New()
 
-	//e.Static("/index", http.FileServer(http.Dir("index")))
+	e.File("/index", "static/index.html")
 
 	e.Get("/ping", controllers.Ping("PING"))
 
