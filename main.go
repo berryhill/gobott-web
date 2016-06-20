@@ -14,7 +14,7 @@ import (
 func main() {
 	e := echo.New()
 
-	e.File("/index", "static/index.html")
+	e.File("/index", "views/index.html")
 
 	e.Get("/ping", controllers.Ping("PING"))
 
