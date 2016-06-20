@@ -1,5 +1,23 @@
+<!DOCTYPE html>
 <html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+</head>
+<body>
     <h1>
         Hello Berry 
     </h1>
+
+    <button class="button"></button>
+    <script type="text/javascript">
+    	console.log('hey! this is a test');
+
+		$(".button").click(function(){
+		    $.ajax({url: "http://localhost:1323/halt_report", success: function(result){
+		        console.log('heres the result playyyer: ', result);
+		    }});
+		});
+    </script>
+</body>
 </html>
