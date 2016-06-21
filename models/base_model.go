@@ -7,4 +7,3 @@ type BaseModel struct {
 	Name 		string                `json:"name"`
 }
 
-

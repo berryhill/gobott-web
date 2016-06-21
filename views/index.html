@@ -1,29 +1,55 @@
 <!DOCTYPE html>
+
 <html>
-<head>
-	<title></title>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-</head>
-<body>
-    <h1>
-        Hello Berry 
-    </h1>
+    <head>
+	    <title>canna-bot</title>
 
-    <button class="resume-button">Resume Report</button>
-    <button class="stop-button">Stop Report</button>
-    <script type="text/javascript">
-    	console.log('hey! this is a test');
+	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+        <script src="js/script.js"></script>
+    </head>
 
-		$(".resume-button").click(function(){
-		    $.ajax({url: "http://localhost:1323/resume_report", success: function(result){
-		        console.log('heres the result playyyer: ', result);
-		    }});
-		});
-		$(".stop-button").click(function(){
-		    $.ajax({url: "http://localhost:1323/halt_report", success: function(result){
-		        console.log('heres the result playyyer: ', result);
-		    }});
-		});
-    </script>
-</body>
+    <body>
+        <h1>
+            <center>canna-bot</center>
+        </h1>
+
+        <div>
+            <center><button class="resume-button">Resume Report</button></center>
+            <center><button class="stop-button">Stop Report</button></center>
+        </div>
+
+        <div>
+            <form>
+                <br>
+                    <center><button class="set-timer">Set Timer</button></center>
+                    <center><input type="int" name="seconds"></center>
+                <br>
+            </form>
+        </div>
+
+        <script type="text/javascript">
+    	    console.log('Test');
+
+            var seconds = 1;
+            var url = "http://localhost:1323"
+
+		    $(".resume-button").click(function(){
+		        $.ajax({url: url + "/resume_report", success: function(result){
+		            console.log('Resuming Report: ', result);
+		        }});
+		    });
+
+		    $(".stop-button").click(function(){
+		        $.ajax({url: url + "halt_report", success: function(result){
+		            console.log('Halting Report: ', result);
+		        }});
+		    });
+
+            $(".set-timer").click(function(){
+                $.ajax({url: url + "/set_timer/" + seconds, success: function(result){
+                    console.log('Setting Timer: ', result);
+                }});
+            });
+        </script>
+    </body>
 </html>
