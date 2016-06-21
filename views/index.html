@@ -9,11 +9,17 @@
         Hello Berry 
     </h1>
 
-    <button class="button"></button>
+    <button class="resume-button">Resume Report</button>
+    <button class="stop-button">Stop Report</button>
     <script type="text/javascript">
     	console.log('hey! this is a test');
 
-		$(".button").click(function(){
+		$(".resume-button").click(function(){
+		    $.ajax({url: "http://localhost:1323/resume_report", success: function(result){
+		        console.log('heres the result playyyer: ', result);
+		    }});
+		});
+		$(".stop-button").click(function(){
 		    $.ajax({url: "http://localhost:1323/halt_report", success: function(result){
 		        console.log('heres the result playyyer: ', result);
 		    }});
