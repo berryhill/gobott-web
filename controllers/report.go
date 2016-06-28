@@ -36,7 +36,6 @@ func HaltReport(my interface{}) echo.HandlerFunc {
 
 func SetTimer(my interface{}) echo.HandlerFunc {
 	return func(c echo.Context) error {
-		//seconds, _ := strconv.Atoi(c.Param("seconds"))
 		seconds := c.Param("seconds")
 		message := ("timer " + seconds)
 		err := mqtt.Send([]byte(string(message)))
@@ -44,23 +43,3 @@ func SetTimer(my interface{}) echo.HandlerFunc {
 		return Respond(c, err, []byte("SetTimer"))
 	}
 }
-
-/*
-func SetTimer(my interface{}) echo.HandlerFunc {
-	return func(c echo.Context) error {
-		timer := new(models.Timer)
-		seconds, _ := strconv.Atoi(c.Param("seconds"))
-		timer.Seconds = seconds
-
-		json, err := json.Marshal(timer)
-
-		if err != nil {
-			return Respond(c, err, []byte("ERROR"))
-		}
-
-		err = mqtt.Send(json)
-
-		return Respond(c, err, []byte("Halt Report"))
-	}
-}
-*/
