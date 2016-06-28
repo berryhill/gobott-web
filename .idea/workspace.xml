@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8a0f7a9a-af39-4eda-9732-5b80dc31dd34" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my.db" afterPath="$PROJECT_DIR$/my.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="gobott-web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1043,12 +1042,12 @@
       <workItem from="1466715922929" duration="7410000" />
       <workItem from="1466741055359" duration="506000" />
       <workItem from="1466795161019" duration="595000" />
-      <workItem from="1467067545854" duration="1957000" />
+      <workItem from="1467067545854" duration="1966000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142469000" />
+    <option name="totallyTimeSpent" value="142478000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="194" y="23" width="1088" height="773" extended-state="1" />
