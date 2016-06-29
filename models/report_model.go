@@ -16,19 +16,20 @@ type Report struct {
 	Machine 		*Machine	         `json:"machine"`
 }
 
+func NewReport(name string, m *Machine) *Report {
+	r := new(Report)
+	r.Date = time.Now()
+	r.Id = bson.NewObjectIdWithTime(r.Date)
+	r.Name = name
+	r.Machine = m
+
+	return r
+}
+
 type ReportJson struct {
 	BaseModel
 	Name 			string            `json:"name"`
 	Machine 		[]byte            `json:"machine"`
-}
-
-func NewReport(m *Machine) *Report {
-	r := new(Report)
-	r.Date = time.Now()
-	r.Id = bson.NewObjectIdWithTime(r.Date)
-	r.Machine = m
-
-	return r
 }
 
 func (r *Report) MarshalJson() ([]byte, error) {

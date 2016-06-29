@@ -40,11 +40,15 @@ func StartMqttClient() {
 func HandleReport (msg MQTT.Message) error {
 	fmt.Println("Handling Report")
 	report := new(models.Report)
-
 	if err := report.UnmarshalJson(msg.Payload()); err != nil {
 		fmt.Println("Error Unmarshalling")
 		return fmt.Errorf("error unmarshaling report: %v", err)
 	}
+
+	fmt.Println("Report Id: ", report.Id)
+	fmt.Println("Report Name: ", report.Name)
+	fmt.Println("Machine Id: ", report.Machine.Id)
+	fmt.Println("Machine Name: ", report.Machine.Name)
 
 	if err := report.Save(); err != nil {
 		fmt.Println("Error Saving")

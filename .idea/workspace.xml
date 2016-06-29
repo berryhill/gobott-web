@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a0f7a9a-af39-4eda-9732-5b80dc31dd34" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my.db" afterPath="$PROJECT_DIR$/my.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/report_model.go" afterPath="$PROJECT_DIR$/models/report_model.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mqtt/web_operator.go" afterPath="$PROJECT_DIR$/mqtt/web_operator.go" />
     </list>
     <ignored path="gobott-web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,8 +61,8 @@
       <file leaf-file-name="report_model.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/report_model.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+            <state relative-caret-position="135">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -69,7 +71,7 @@
       <file leaf-file-name="machine_model.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/machine_model.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
+            <state relative-caret-position="-104">
               <caret line="22" column="62" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="62" />
               <folding />
             </state>
@@ -79,8 +81,8 @@
       <file leaf-file-name="web_operator.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mqtt/web_operator.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+            <state relative-caret-position="330">
+              <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -178,8 +180,8 @@
         <option value="$PROJECT_DIR$/models/base_model.go" />
         <option value="$PROJECT_DIR$/controllers/controller.go" />
         <option value="$PROJECT_DIR$/controllers/report.go" />
-        <option value="$PROJECT_DIR$/mqtt/web_operator.go" />
         <option value="$PROJECT_DIR$/views/index.html" />
+        <option value="$PROJECT_DIR$/mqtt/web_operator.go" />
         <option value="$PROJECT_DIR$/models/report_model.go" />
       </list>
     </option>
@@ -246,6 +248,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gobott-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gobott-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gobott-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mqtt" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1050,12 +1066,12 @@
       <workItem from="1466715922929" duration="7410000" />
       <workItem from="1466741055359" duration="506000" />
       <workItem from="1466795161019" duration="595000" />
-      <workItem from="1467067545854" duration="5260000" />
+      <workItem from="1467067545854" duration="6079000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145772000" />
+    <option name="totallyTimeSpent" value="146591000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="194" y="23" width="1088" height="773" extended-state="0" />
@@ -1428,14 +1444,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mqtt/web_operator.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -1446,16 +1454,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/machine_model.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
+        <state relative-caret-position="-104">
           <caret line="22" column="62" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqtt/web_operator.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/report_model.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+        <state relative-caret-position="135">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
