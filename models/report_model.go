@@ -16,6 +16,12 @@ type Report struct {
 	Machine 		*Machine	         `json:"machine"`
 }
 
+type ReportJson struct {
+	BaseModel
+	Name 			string            `json:"name"`
+	Machine 		[]byte            `json:"machine"`
+}
+
 func NewReport(m *Machine) *Report {
 	r := new(Report)
 	r.Date = time.Now()
@@ -30,21 +36,29 @@ func (r *Report) MarshalJson() ([]byte, error) {
 	machineJson.Id = r.Machine.Id
 	machineJson.Name = r.Machine.Name
 
-	return json.MarshalIndent(r, "", "    ")
+	reportJson := new(ReportJson)
+	reportJson.Id = r.Id
+	reportJson.Name = r.Name
+	reportJson.Machine = machineJson
+
+	return json.MarshalIndent(reportJson, "", "    ")
 }
 
 func (r *Report) UnmarshalJson(data []byte) error {
-	machineJson := new(MachineJson)
-	if err := json.Unmarshal(data, &machineJson); err != nil {
+	reportJson := new(ReportJson)
+	if err := json.Unmarshal(data, &reportJson); err != nil {
+		return fmt.Errorf("error unmarshaling report: %v", err)
+	}
+	
+	r.Id = reportJson.Id
+	r.Name = reportJson.Name
+	if err := json.Unmarshal(reportJson.Machine, &r.Machine); err != nil {
 		return fmt.Errorf("error unmarshaling report: %v", err)
 	}
 
-	r.Id = machineJson.Id
-	r.Name = machineJson.Name
-
-	if err := json.Unmarshal(data, &r); err != nil {
-		return fmt.Errorf("error unmarshaling report: %v", err)
-	}
+	//if err := json.Unmarshal(data, &r); err != nil {
+	//	return fmt.Errorf("error unmarshaling report: %v", err)
+	//}
 
 	return nil
 }
