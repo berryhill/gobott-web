@@ -27,8 +27,6 @@ func NewMachine(name string) *Machine {
 	m := new(Machine)
 	m.Id = bson.NewObjectId()
 	m.Name = name
-	bson := bson.NewObjectId()
-	m.SensorIds = append(m.SensorIds, bson)
 
 	return m
 }
@@ -39,7 +37,6 @@ func (m *Machine) MarshalJson() ([]byte, error) {
 
 func (m *Machine) UnmarshalJson(data []byte) error {
 	machine := &Machine{}
-
 	if err := json.Unmarshal(data, &machine); err != nil {
 		return fmt.Errorf("error unmarshaling report: %v", err)
 	}

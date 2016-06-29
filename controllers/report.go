@@ -1,20 +1,49 @@
 package controllers
 
 import (
-	"github.com/labstack/echo"
+	"fmt"
+	"log"
 
-	"github.com/gobott-web/store"
+	"github.com/labstack/echo"
+	"gopkg.in/mgo.v2/bson"
+
+	//"github.com/gobott-web/store"
 	"github.com/gobott-web/models"
 	"github.com/gobott-web/mqtt"
 	//"strconv"
+	"gopkg.in/mgo.v2"
 )
 
-func GetAllReports(my interface{}) echo.HandlerFunc {
+func GetReports(my interface{}) echo.HandlerFunc {
 	return func(c echo.Context) error {
-		//err, reports := store.RetrieveAllFromDb(models.Report{}, []byte("reports"))
-		err := store.RetrieveAllFromDb(models.Report{}, []byte("reports"))
+		var session *mgo.Session
+		var collection *mgo.Collection
+		var err error
 
-		return Respond(c, err, []byte("REPORTS"))
+		session, err = mgo.Dial("localhost:27017")
+		defer session.Close()
+		if err != nil {
+			log.Fatal(err)
+		}
+		if err != nil {
+			return err
+		}
+
+		collection = session.DB("test").C("reports")
+		if err != nil {
+			return err
+		}
+
+		var results []models.Report
+		err = collection.Find(bson.M{"name": "green1"}).Sort("-timestamp").All(&results)
+		if err != nil {
+			return err
+		}
+		fmt.Println("Results All: ", results)
+
+		session.Close()
+
+		return err
 	}
 }
 

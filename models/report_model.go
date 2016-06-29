@@ -6,8 +6,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/gobott-web/store"
+	//"github.com/gobott-web/store"
 	"gopkg.in/mgo.v2/bson"
+	"gopkg.in/mgo.v2"
 )
 
 type Report struct {
@@ -46,7 +47,6 @@ func (r *Report) MarshalJson() ([]byte, error) {
 		return nil, fmt.Errorf("error unmarshaling machine: %v", err)
 	}
 
-
 	return json.MarshalIndent(reportJson, "", "    ")
 }
 
@@ -59,24 +59,27 @@ func (r *Report) UnmarshalJson(data []byte) error {
 	r.Id = reportJson.Id
 	r.Name = reportJson.Name
 	if err := json.Unmarshal(reportJson.Machine, &r.Machine); err != nil {
-		return fmt.Errorf("error unmarshaling report: %v", err)
+		return fmt.Errorf("error unmarshaling machine: %v", err)
 	}
-
-	//if err := json.Unmarshal(data, &r); err != nil {
-	//	return fmt.Errorf("error unmarshaling report: %v", err)
-	//}
 
 	return nil
 }
 
 func (r *Report) Save() error {
-	json, err := r.MarshalJson()
-	store.AddToDb([]byte("reports"), json)
+	session, err := mgo.Dial("localhost:27017")
+	defer session.Close()
 
 	if err != nil {
 		log.Fatal(err)
-		return err
 	}
+
+	c := session.DB("test").C("reports")
+	err = c.Insert(r)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	session.Close()
 
 	return nil
 }
