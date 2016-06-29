@@ -32,14 +32,20 @@ func NewReport(m *Machine) *Report {
 }
 
 func (r *Report) MarshalJson() ([]byte, error) {
+	var err error
+
 	machineJson := new(MachineJson)
 	machineJson.Id = r.Machine.Id
 	machineJson.Name = r.Machine.Name
 
 	reportJson := new(ReportJson)
 	reportJson.Id = r.Id
+
 	reportJson.Name = r.Name
-	reportJson.Machine = machineJson
+	if reportJson.Machine, err = json.Marshal(machineJson); err != nil {
+		return nil, fmt.Errorf("error unmarshaling machine: %v", err)
+	}
+
 
 	return json.MarshalIndent(reportJson, "", "    ")
 }
@@ -49,7 +55,7 @@ func (r *Report) UnmarshalJson(data []byte) error {
 	if err := json.Unmarshal(data, &reportJson); err != nil {
 		return fmt.Errorf("error unmarshaling report: %v", err)
 	}
-	
+
 	r.Id = reportJson.Id
 	r.Name = reportJson.Name
 	if err := json.Unmarshal(reportJson.Machine, &r.Machine); err != nil {
