@@ -12,8 +12,8 @@ import (
 
 type Report struct {
 	BaseModel
-	Date 		time.Time               `json:"date"`
-	Machine 	*Machine           	`json:"machine"`
+	Date 			time.Time            `json:"date"`
+	Machine 		*Machine	         `json:"machine"`
 }
 
 func NewReport(m *Machine) *Report {
@@ -26,10 +26,22 @@ func NewReport(m *Machine) *Report {
 }
 
 func (r *Report) MarshalJson() ([]byte, error) {
+	machineJson := new(MachineJson)
+	machineJson.Id = r.Machine.Id
+	machineJson.Name = r.Machine.Name
+
 	return json.MarshalIndent(r, "", "    ")
 }
 
 func (r *Report) UnmarshalJson(data []byte) error {
+	machineJson := new(MachineJson)
+	if err := json.Unmarshal(data, &machineJson); err != nil {
+		return fmt.Errorf("error unmarshaling report: %v", err)
+	}
+
+	r.Id = machineJson.Id
+	r.Name = machineJson.Name
+
 	if err := json.Unmarshal(data, &r); err != nil {
 		return fmt.Errorf("error unmarshaling report: %v", err)
 	}

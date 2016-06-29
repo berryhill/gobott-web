@@ -11,10 +11,16 @@ import (
 
 type Machine struct {
 	BaseModel
-	Name			string                   `json:"name"`
-	Sensors 		[]*Sensor                `json:"sensors"`
-	SensorIds 		[]bson.ObjectId          `json:"sensor_ids"`
+	Name				string                   `json:"name"`
+	Sensors 			[]*Sensor                `json:"sensors"`
+	SensorIds 			[]bson.ObjectId          `json:"sensor_ids"`
 	Instructions 		[]*Instruction           `json:"instructions"`
+}
+
+type MachineJson struct {
+	BaseModel
+	Name 				string   	         	 `json:"name"`
+	Data 				[]uint8                  `json:"data"`
 }
 
 func NewMachine(name string) *Machine {
