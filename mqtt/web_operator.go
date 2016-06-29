@@ -44,7 +44,6 @@ func HandleReport (msg MQTT.Message) error {
 		fmt.Println("Error Unmarshalling")
 		return fmt.Errorf("error unmarshaling report: %v", err)
 	}
-
 	fmt.Println("Report Id: ", report.Id)
 	fmt.Println("Report Name: ", report.Name)
 	fmt.Println("Machine Id: ", report.Machine.Id)

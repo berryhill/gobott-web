@@ -16,11 +16,10 @@ type Report struct {
 	Machine 		*Machine	         `json:"machine"`
 }
 
-func NewReport(name string, m *Machine) *Report {
+func NewReport(m *Machine) *Report {
 	r := new(Report)
 	r.Date = time.Now()
 	r.Id = bson.NewObjectIdWithTime(r.Date)
-	r.Name = name
 	r.Machine = m
 
 	return r
