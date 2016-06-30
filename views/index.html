@@ -5,7 +5,7 @@
 	    <title>canna-bot</title>
 
 	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-        <!--<script type="text/javascript" src="views/js/script.js"></script>-->
+        <script type="text/javascript" src="/views/js/script.js"></script>
     </head>
 
     <body>
@@ -18,38 +18,11 @@
             <center><button class="stop-button">Stop Report</button></center>
         </div>
 
-        <div>
-            <form>
-                <br>
-                    <center><button class="set-timer">Set Timer</button></center>
-                    <center><input type="int" name="seconds"></center>
-                <br>
-            </form>
-        </div>
-
-        <script type="text/javascript">
-    	    console.log('Test');
-
-            var seconds = 1;
-            var url = "http://localhost:1323"
-
-		    $(".resume-button").click(function(){
-		        $.ajax({url: url + "/resume_report", success: function(result){
-		            console.log('Resuming Report: ', result);
-		        }});
-		    });
-
-		    $(".stop-button").click(function(){
-		        $.ajax({url: url + "/halt_report", success: function(result){
-		            console.log('Halting Report: ', result);
-		        }});
-		    });
-
-            $(".set-timer").click(function(){
-                $.ajax({url: url + "/set_timer/" + seconds, success: function(result){
-                    console.log('Setting Timer: ', result);
-                }});
-            });
-        </script>
+        <!--<div>-->
+            <!--<form name="Timer" >-->
+                <!--<input type="text" id="seconds" name="seconds"/>-->
+                <!--<input type="button" name="Submit" value="Submit" onclick="makeSearch()"/>-->
+            <!--</form>-->
+        <!--</div>-->
     </body>
 </html>

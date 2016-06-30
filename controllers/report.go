@@ -3,6 +3,7 @@ package controllers
 import (
 	"fmt"
 	"log"
+	//"strconv"
 
 	"github.com/labstack/echo"
 	"gopkg.in/mgo.v2/bson"
@@ -10,7 +11,6 @@ import (
 	//"github.com/gobott-web/store"
 	"github.com/gobott-web/models"
 	"github.com/gobott-web/mqtt"
-	//"strconv"
 	"gopkg.in/mgo.v2"
 )
 

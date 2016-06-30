@@ -12,7 +12,7 @@ import (
 type Machine struct {
 	BaseModel
 	Name				string                   `json:"name"`
-	Sensors 			[]*Sensor                `json:"sensors"`
+	Sensors 			[]*AnalogSensor                `json:"sensors"`
 	SensorIds 			[]bson.ObjectId          `json:"sensor_ids"`
 	Instructions 		[]*Instruction           `json:"instructions"`
 }
@@ -56,7 +56,7 @@ func (m *Machine) Save() error {
 	return nil
 }
 
-func (m *Machine) AddSensor(s *Sensor) error {
+func (m *Machine) AddSensor(s *AnalogSensor) error {
 	m.Sensors = append(m.Sensors, s)
 	//m.SensorIds = append(m.SensorIds, s.Id)
 
