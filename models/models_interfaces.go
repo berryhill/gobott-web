@@ -1,4 +1,4 @@
-//package models
+package models
 //
 //type Sensor interface {
 //	Set(int32)

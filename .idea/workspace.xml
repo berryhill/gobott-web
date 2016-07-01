@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a0f7a9a-af39-4eda-9732-5b80dc31dd34" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/machine_model.go" afterPath="$PROJECT_DIR$/models/machine_model.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/models_interfaces.go" afterPath="$PROJECT_DIR$/models/models_interfaces.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mqtt/web_operator.go" afterPath="$PROJECT_DIR$/mqtt/web_operator.go" />
     </list>
     <ignored path="gobott-web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,10 +66,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="machine_model.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="machine_model.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/machine_model.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-150">
+            <state relative-caret-position="615">
               <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
               <folding>
                 <element signature="e#16#113#0" expanded="true" />
@@ -80,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models_interfaces.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="models_interfaces.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/models_interfaces.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -181,8 +179,8 @@
         <option value="$PROJECT_DIR$/views/index.html" />
         <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/mqtt/web_operator.go" />
-        <option value="$PROJECT_DIR$/models/models_interfaces.go" />
         <option value="$PROJECT_DIR$/models/machine_model.go" />
+        <option value="$PROJECT_DIR$/models/models_interfaces.go" />
       </list>
     </option>
   </component>
@@ -1109,12 +1107,12 @@
       <workItem from="1467171357464" duration="5785000" />
       <workItem from="1467210512106" duration="46000" />
       <workItem from="1467244055639" duration="4885000" />
-      <workItem from="1467322090786" duration="7592000" />
+      <workItem from="1467322090786" duration="7695000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168420000" />
+    <option name="totallyTimeSpent" value="168523000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="161" y="23" width="1119" height="773" extended-state="0" />
@@ -1497,21 +1495,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/models_interfaces.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/machine_model.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150">
+        <state relative-caret-position="615">
           <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
           <folding>
             <element signature="e#16#113#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/models_interfaces.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
