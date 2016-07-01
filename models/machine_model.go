@@ -20,7 +20,7 @@ type Machine struct {
 type MachineJson struct {
 	BaseModel
 	Name 				string   	         	 `json:"name"`
-	Sensors 			[][]byte                   `json:"sensors"`
+	Sensors 			[]byte                   `json:"sensors"`
 	Data 				[]uint8                  `json:"data"`
 }
 
@@ -33,9 +33,13 @@ func NewMachine(name string) *Machine {
 }
 
 func (m *Machine) MarshalJson() ([]byte, error) {
+	var err error
+
 	machineJson := &MachineJson{}
 	machineJson.Id = m.Id
 	machineJson.Name = m.Name
+
+	var sensors [][]byte
 
 	for k := 0; k < len(m.Sensors); k++ {
 		sensorJson, err := m.Sensors[k].MarshalJson()
@@ -43,7 +47,12 @@ func (m *Machine) MarshalJson() ([]byte, error) {
 			return []byte("ERROR"), err
 		}
 
-		machineJson.Sensors = append(machineJson.Sensors, sensorJson)
+		sensors = append(machineJson.Sensors, sensorJson)
+	}
+
+	machineJson.Sensors, err = json.Marshal(sensors)
+	if err != nil {
+		return machineJson, err
 	}
 
 	return json.MarshalIndent(m, "", "    ")
@@ -58,17 +67,37 @@ func (m *Machine) UnmarshalJson(data []byte) error {
 	m.Name = machineJson.Name
 	m.Id = machineJson.Id
 
-	machine := &Machine{}
-	if err := json.Unmarshal(data, &machine); err != nil {
-		return fmt.Errorf("error unmarshaling report: %v", err)
+	var sensors map[byte]byte
+	err := json.Unmarshal(machineJson.Sensors, &sensors)
+	if err != nil {
+		return err
 	}
+
+	for k := 0; k < len(sensors); k++ {
+		var sensor AnalogSensor
+		sensor.UnmarshalJson(sensors[k])
+		m.Sensors = append(m.Sensors, sensor)
+	}
+
+	return nil
+
+	//err := m.UnmarshalSensors(machineJson.Sensors)
+	//machine := &Machine{}
+	//if err := json.Unmarshal(data, &machine); err != nil {
+	//	return fmt.Errorf("error unmarshaling report: %v", err)
+	//}
 
 	return nil
 }
 
-//func UnmarshalSensor(json []byte) {
-//	var sensors []byte
+//func (m *Machine) UnmarshalSensors(json []byte) error {
+//	var sensors [][]byte
 //	err := json.Unmarshal(json, &sensors)
+//	if err != nil {
+//		return err
+//	}
+//
+//	return nil
 //}
 //
 //func UnmarshalSensors(json []byte) ([]*AnalogSensor, error) {
