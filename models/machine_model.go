@@ -46,7 +46,6 @@ func (m *Machine) MarshalJson() ([]byte, error) {
 		machineJson.Sensors = append(machineJson.Sensors, sensorJson)
 	}
 
-	fmt.Println(machineJson)
 	return json.MarshalIndent(m, "", "    ")
 }
 
