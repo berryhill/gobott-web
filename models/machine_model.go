@@ -74,7 +74,7 @@ func (m *Machine) UnmarshalJson(data []byte) error {
 	}
 
 	for k := 0; k < len(sensors); k++ {
-		var sensor AnalogSensor
+		var sensor *AnalogSensor
 		sensor.UnmarshalJson(sensors[k])
 		m.Sensors = append(m.Sensors, sensor)
 	}
