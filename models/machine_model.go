@@ -20,8 +20,8 @@ type Machine struct {
 type MachineJson struct {
 	BaseModel
 	Name 				string   	         	 `json:"name"`
-	Sensors 			map[int][]byte   `json:"sensors"`
-	Data 				[]uint8                  `json:"data"`
+	Sensors 			map[int][]byte  		 `json:"sensors"`
+	//Data 				[]uint8                  `json:"data"`
 }
 
 func NewMachine(name string) *Machine {
