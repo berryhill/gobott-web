@@ -48,8 +48,8 @@ func HandleReport (msg MQTT.Message) error {
 	fmt.Println("Report Name: ", report.Name)
 	fmt.Println("Machine Id: ", report.Machine.Id)
 	fmt.Println("Machine Name: ", report.Machine.Name)
-	fmt.Println("LightSensor Value: ", report.Machine.Sensors[0].Value)
-	fmt.Println("Thermistor Value: ", report.Machine.Sensors[1].Value)
+	fmt.Println("LightSensor Value: ", report.Machine.Sensors[0])
+	fmt.Println("Thermistor Value: ", report.Machine.Sensors[1])
 
 	if err := report.Save(); err != nil {
 		fmt.Println("Error Saving")
