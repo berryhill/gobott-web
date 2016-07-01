@@ -36,9 +36,8 @@ func (r *Report) MarshalJson() ([]byte, error) {
 	var err error
 
 	machineJson := new(MachineJson)
-	machineJson, err = r.Machine.MarshalJson()
-	//machineJson.Id = r.Machine.Id
-	//machineJson.Name = r.Machine.Name
+	machineJson.Id = r.Machine.Id
+	machineJson.Name = r.Machine.Name
 
 	reportJson := new(ReportJson)
 	reportJson.Id = r.Id

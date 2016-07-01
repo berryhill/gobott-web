@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a0f7a9a-af39-4eda-9732-5b80dc31dd34" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/machine_model.go" afterPath="$PROJECT_DIR$/models/machine_model.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/report_model.go" afterPath="$PROJECT_DIR$/models/report_model.go" />
     </list>
     <ignored path="gobott-web.iws" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="report_model.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/report_model.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+            <state relative-caret-position="-104">
+              <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
               <folding>
                 <element signature="e#16#142#0" expanded="true" />
               </folding>
@@ -1108,12 +1107,12 @@
       <workItem from="1467171357464" duration="5785000" />
       <workItem from="1467210512106" duration="46000" />
       <workItem from="1467244055639" duration="4885000" />
-      <workItem from="1467322090786" duration="8263000" />
+      <workItem from="1467322090786" duration="8470000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169091000" />
+    <option name="totallyTimeSpent" value="169298000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="161" y="23" width="1119" height="773" extended-state="0" />
@@ -1506,8 +1505,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/report_model.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+        <state relative-caret-position="-104">
+          <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
           <folding>
             <element signature="e#16#142#0" expanded="true" />
           </folding>
