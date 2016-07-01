@@ -12,7 +12,7 @@ import (
 type Machine struct {
 	BaseModel
 	Name				string                   `json:"name"`
-	Sensors 			[]*AnalogSensor                `json:"sensors"`
+	Sensors 			[]*AnalogSensor          `json:"sensors"`
 	//SensorIds 		[]bson.ObjectId          `json:"sensor_ids"`
 	//Instructions 		[]*Instruction           `json:"instructions"`
 }
@@ -20,7 +20,7 @@ type Machine struct {
 type MachineJson struct {
 	BaseModel
 	Name 				string   	         	 `json:"name"`
-	Sensors 			[]byte                   `json:"sensors"`
+	Sensors 			map[int][]byte   `json:"sensors"`
 	Data 				[]uint8                  `json:"data"`
 }
 
@@ -33,45 +33,49 @@ func NewMachine(name string) *Machine {
 }
 
 func (m *Machine) MarshalJson() ([]byte, error) {
-	var err error
+	//var err error
 
 	machineJson := &MachineJson{}
 	machineJson.Id = m.Id
 	machineJson.Name = m.Name
 
-	var sensors [][]byte
+	var sensors map[int][]byte
 
+	loop := 0
 	for k := 0; k < len(m.Sensors); k++ {
 		sensorJson, err := m.Sensors[k].MarshalJson()
 		if err != nil {
 			return []byte("ERROR"), err
 		}
 
-		sensors = append(machineJson.Sensors, sensorJson)
+		sensors[loop] = sensorJson
+		loop = loop + 1
 	}
 
-	machineJson.Sensors, err = json.Marshal(sensors)
-	if err != nil {
-		return machineJson, err
-	}
+	machineJson.Sensors = sensors
 
-	return json.MarshalIndent(m, "", "    ")
+	//machineJson.Sensors, err = json.Marshal(sensors)
+	//if err != nil {
+	//	return machineJson, err
+	//}
+
+	return json.MarshalIndent(machineJson, "", "    ")
 }
 
 func (m *Machine) UnmarshalJson(data []byte) error {
 	machineJson := new(MachineJson)
-	if err := json.Unmarshal(data, &machineJson); err!= nil {
+	if err := json.Unmarshal(data, &machineJson); err != nil {
 		return fmt.Errorf("error unmarshaling report: %v", err)
 	}
 
 	m.Name = machineJson.Name
 	m.Id = machineJson.Id
 
-	var sensors map[byte]byte
-	err := json.Unmarshal(machineJson.Sensors, &sensors)
-	if err != nil {
-		return err
-	}
+	var sensors map[int][]byte
+	//err := json.Unmarshal(machineJson.Sensors, &sensors)
+	//if err != nil {
+	//	return err
+	//}
 
 	for k := 0; k < len(sensors); k++ {
 		var sensor *AnalogSensor
@@ -80,15 +84,14 @@ func (m *Machine) UnmarshalJson(data []byte) error {
 	}
 
 	return nil
+}
 
 	//err := m.UnmarshalSensors(machineJson.Sensors)
 	//machine := &Machine{}
 	//if err := json.Unmarshal(data, &machine); err != nil {
 	//	return fmt.Errorf("error unmarshaling report: %v", err)
 	//}
-
-	return nil
-}
+//}
 
 //func (m *Machine) UnmarshalSensors(json []byte) error {
 //	var sensors [][]byte
