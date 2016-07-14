@@ -33,34 +33,39 @@ type ReportJson struct {
 }
 
 func (r *Report) MarshalJson() ([]byte, error) {
-	var err error
+	//var err error
+	//
+	//machineJson := new(MachineJson)
+	//machineJson.Id = r.Machine.Id
+	//machineJson.Name = r.Machine.Name
+	//
+	//reportJson := new(ReportJson)
+	//reportJson.Id = r.Id
+	//
+	//reportJson.Name = r.Name
+	//if reportJson.Machine, err = json.Marshal(machineJson); err != nil {
+	//	return nil, fmt.Errorf("error marshaling machine: %v", err)
+	//}
 
-	machineJson := new(MachineJson)
-	machineJson.Id = r.Machine.Id
-	machineJson.Name = r.Machine.Name
-
-	reportJson := new(ReportJson)
-	reportJson.Id = r.Id
-
-	reportJson.Name = r.Name
-	if reportJson.Machine, err = json.Marshal(machineJson); err != nil {
-		return nil, fmt.Errorf("error marshaling machine: %v", err)
-	}
-
-	return json.MarshalIndent(reportJson, "", "    ")
+	return json.MarshalIndent(r, "", "    ")
 }
 
 func (r *Report) UnmarshalJson(data []byte) error {
-	reportJson := new(ReportJson)
-	if err := json.Unmarshal(data, &reportJson); err != nil {
+	report_json_struct := struct {
+		BaseModel
+		Name				string                   `json:"name"`
+		Machine 			interface{}              `json:"sensors"`
+	}{}
+
+	if err := json.Unmarshal(data, &report_json_struct); err != nil {
 		return fmt.Errorf("error unmarshaling report: %v", err)
 	}
 
-	r.Id = reportJson.Id
-	r.Name = reportJson.Name
-	if err := json.Unmarshal(reportJson.Machine, &r.Machine); err != nil {
-		return fmt.Errorf("error unmarshaling machine: %v", err)
-	}
+	r.Id = report_json_struct.Id
+	r.Name = report_json_struct.Name
+
+	mapp := report_json_struct.Machine.(map[string]interface{})
+	r.Machine = MakeMachine(mapp)
 
 	return nil
 }
