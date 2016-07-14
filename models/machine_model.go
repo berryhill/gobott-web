@@ -78,7 +78,7 @@ func (m *Machine) UnmarshalJson(data []byte) error {
 
 	if len(machine_json_struct.Sensors) > 0 {
 		var temp_sensors []*AnalogSensor
-		for val, _ := range machine_json_struct.Sensors {
+		for _, val := range machine_json_struct.Sensors {
 			mapp := val.(map[string]interface{})
 			temp_sensors = append(m.Sensors, MakeAnalogSensor(mapp))
 		}

@@ -24,7 +24,7 @@ func NewAnalogSensor (name string) *AnalogSensor {
 	return as
 }
 
-func MakeAnalogSensor(mapp map[string]interface{}) (AnalogSensor) {
+func MakeAnalogSensor(mapp map[string]interface{}) (*AnalogSensor) {
 	as := NewAnalogSensor("test")
 	if val, ok := mapp["value"]; ok && val != nil {
 		as.Value = val.(int32)
