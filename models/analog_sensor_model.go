@@ -13,7 +13,7 @@ type AnalogSensor struct {
 	BaseModel
 	Value 		int32                `json:"value"`
 	Peak		int32                `json:"peak"`
-	floor 		int32                `json:"floor"`
+	Floor 		int32                `json:"floor"`
 }
 
 func NewAnalogSensor (name string) *AnalogSensor {
@@ -24,41 +24,57 @@ func NewAnalogSensor (name string) *AnalogSensor {
 	return as
 }
 
+func MakeAnalogSensor(mapp map[string]interface{}) (AnalogSensor) {
+	as := NewAnalogSensor("test")
+	if val, ok := mapp["value"]; ok && val != nil {
+		as.Value = val.(int32)
+	}
+	if val, ok := mapp["peak"]; ok && val != nil {
+		as.Peak = val.(int32)
+	}
+	if val, ok := mapp["floor"]; ok && val != nil {
+		as.Peak = val.(int32)
+	}
+
+	return as
+}
+
 func (as *AnalogSensor) Set(value int32) {
-	as.Value = value
+as.Value = value
 }
 
 func (as *AnalogSensor) Listen() int32 {
-	return as.Value
+return as.Value
 }
 
 func (as *AnalogSensor) MarshalJson() ([]byte, error) {
-	json, err := json.MarshalIndent(as, "", "    ")
+json, err := json.MarshalIndent(as, "", "    ")
 
-	if err != nil {
-		fmt.Println(err)
-		return json, err
-	}
+if err != nil {
+fmt.Println(err)
+return json, err
+}
 
-	return json, err
+return json, err
 }
 
 func (as *AnalogSensor) UnmarshalJson(data []byte) error {
-	if err := json.Unmarshal(data, &as); err != nil {
-		return fmt.Errorf("error unmarshaling report: %v", err)
-	}
+if err := json.Unmarshal(data, &as); err != nil {
+return fmt.Errorf("error unmarshaling report: %v", err)
+}
 
-	return nil
+return nil
 }
 
 func (as *AnalogSensor) Save() error {
-	json, err := as.MarshalJson()
-	store.AddToDb([]byte("Sensors"), json)
+json, err := as.MarshalJson()
+store.AddToDb([]byte("Sensors"), json)
 
-	if err != nil {
-		log.Fatal(err)
-		return err
-	}
-
-	return nil
+if err != nil {
+log.Fatal(err)
+return err
 }
+
+return nil
+}
+

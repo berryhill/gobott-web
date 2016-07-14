@@ -63,24 +63,27 @@ func (m *Machine) MarshalJson() ([]byte, error) {
 }
 
 func (m *Machine) UnmarshalJson(data []byte) error {
-	machineJson := new(MachineJson)
-	if err := json.Unmarshal(data, &machineJson); err != nil {
+	machine_json_struct := struct {
+		BaseModel
+		Name				string                   `json:"name"`
+		Sensors 			[]interface{}            `json:"sensors"`
+	}{}
+
+	if err := json.Unmarshal(data, &machine_json_struct); err != nil {
 		return fmt.Errorf("error unmarshaling report: %v", err)
 	}
 
-	m.Name = machineJson.Name
-	m.Id = machineJson.Id
+	m.Name = machine_json_struct.Name
+	m.Id = machine_json_struct.Id
 
-	//var sensors map[int][]byte
-	//err := json.Unmarshal(machineJson.Sensors, &sensors)
-	//if err != nil {
-	//	return err
-	//}
+	if len(machine_json_struct.Sensors) > 0 {
+		var temp_sensors []*AnalogSensor
+		for val, _ := range machine_json_struct.Sensors {
+			mapp := val.(map[string]interface{})
+			temp_sensors = append(m.Sensors, MakeAnalogSensor(mapp))
+		}
 
-	for k := 0; k < len(machineJson.Sensors); k++ {
-		var sensor *AnalogSensor
-		sensor.UnmarshalJson(machineJson.Sensors[k])
-		m.Sensors = append(m.Sensors, sensor)
+		m.Sensors = temp_sensors
 	}
 
 	return nil

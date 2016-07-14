@@ -44,7 +44,7 @@ func (r *Report) MarshalJson() ([]byte, error) {
 
 	reportJson.Name = r.Name
 	if reportJson.Machine, err = json.Marshal(machineJson); err != nil {
-		return nil, fmt.Errorf("error unmarshaling machine: %v", err)
+		return nil, fmt.Errorf("error marshaling machine: %v", err)
 	}
 
 	return json.MarshalIndent(reportJson, "", "    ")
