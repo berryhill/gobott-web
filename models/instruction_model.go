@@ -6,9 +6,9 @@ type Instruction interface {
 }
 
 type BaseInstruction struct {
-	Description 		string                `json:"description"`
-	Condition 		bool                  `json:"condition"`
-	Alerts 			[]*Alert              `json:"alerts"`
+	Description 		string 		          `json:"description"`
+	Condition 			bool                  `json:"condition"`
+	Alerts 				[]*Alert              `json:"alerts"`
 }
 
 type TrueInstruction struct {

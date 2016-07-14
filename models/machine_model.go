@@ -13,7 +13,7 @@ type Machine struct {
 	BaseModel
 	Name				string                   `json:"name"`
 	Sensors 			[]*AnalogSensor          `json:"sensors"`
-	//SensorIds 		[]bson.ObjectId          `json:"sensor_ids"`
+	//SensorIds	 		[]bson.ObjectId          `json:"sensor_ids"`
 	//Instructions 		[]*Instruction           `json:"instructions"`
 }
 

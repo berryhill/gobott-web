@@ -33,20 +33,6 @@ type ReportJson struct {
 }
 
 func (r *Report) MarshalJson() ([]byte, error) {
-	//var err error
-	//
-	//machineJson := new(MachineJson)
-	//machineJson.Id = r.Machine.Id
-	//machineJson.Name = r.Machine.Name
-	//
-	//reportJson := new(ReportJson)
-	//reportJson.Id = r.Id
-	//
-	//reportJson.Name = r.Name
-	//if reportJson.Machine, err = json.Marshal(machineJson); err != nil {
-	//	return nil, fmt.Errorf("error marshaling machine: %v", err)
-	//}
-
 	return json.MarshalIndent(r, "", "    ")
 }
 
