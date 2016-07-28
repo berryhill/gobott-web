@@ -32,13 +32,13 @@ func StartMqttClient() {
 
 	if token := MqttClient.Subscribe("bot_to_web", 0, nil); token.Wait() && token.Error() != nil {
 		fmt.Println(token.Error())
-
 		os.Exit(1)
 	}
 }
 
 func HandleReport (msg MQTT.Message) error {
 	fmt.Println("Handling Report")
+	fmt.Printf("MSG: %s\n", msg.Payload())
 	report := new(models.Report)
 	if err := report.UnmarshalJson(msg.Payload()); err != nil {
 		fmt.Println("Error Unmarshalling")
@@ -46,15 +46,15 @@ func HandleReport (msg MQTT.Message) error {
 	}
 	fmt.Println("Report Id: ", report.Id)
 	fmt.Println("Report Name: ", report.Name)
-	fmt.Println("Machine Id: ", report.Machine.Id)
-	fmt.Println("Machine Name: ", report.Machine.Name)
-	fmt.Println("LightSensor Value: ", report.Machine.Sensors[0])
-	fmt.Println("Thermistor Value: ", report.Machine.Sensors[1])
+	//fmt.Println("Machine Id: ", report.Machine.Id)
+	//fmt.Println("Machine Name: ", report.Machine.Name)
+	//fmt.Println("LightSensor Value: ", report.Machine.Sensors[0])
+	//fmt.Println("Thermistor Value: ", report.Machine.Sensors[1])
 
-	if err := report.Save(); err != nil {
-		fmt.Println("Error Saving")
-		return fmt.Errorf("error saving report: %v", err)
-	}
+	//if err := report.Save(); err != nil {
+	//	fmt.Println("Error Saving")
+	//	return fmt.Errorf("error saving report: %v", err)
+	//}
 
 	return nil
 }

@@ -10,9 +10,9 @@ import (
 
 type BooleanSensor struct {
 	BaseModel
-	State 		int32                `json:"state"`
-	TrueValue	int32                `json:"true_value"`
-	FalseValue 	int32                `json:"false_value"`
+	State 				int32             `json:"state"`
+	TrueValue			int32             `json:"true_value"`
+	FalseValue 			int32             `json:"false_value"`
 }
 
 func NewBooleanSensor(name string) *BooleanSensor {

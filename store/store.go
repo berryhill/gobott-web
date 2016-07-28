@@ -66,7 +66,7 @@ func AddToDb(database []byte, data []byte, ) error {
 	//	log.Fatal(err)
 	//}
 	//
-	//return err
+
 	return nil
 }
 
@@ -93,7 +93,7 @@ func RetrieveFromDb(bucket []byte, key []byte) error {
 	//if err = db.Close(); err != nil {
 	//	log.Fatal(err)
 	//}
-	//
+
 	return nil
 }
 
