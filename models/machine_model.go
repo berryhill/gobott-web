@@ -7,6 +7,7 @@ import (
 
 	"github.com/gobott-web/store"
 	"gopkg.in/mgo.v2/bson"
+	//"golang.org/x/mobile/exp/sensor"
 )
 
 type Machine struct {
@@ -34,14 +35,14 @@ func MakeMachine(mapp map[string]interface{}) *Machine {
 		m.Name = val.(string)
 	}
 	if val, ok := mapp["sensors"]; ok && val != nil {
-		var temp_sensors []*AnalogSensor
-		mappp := val.(map[string]interface{})
+		var sensors []*AnalogSensor
+		sensor_interfaces := val.([]interface{})
 
-		for _, sensor := range mappp {
-			temp_sensors = append(temp_sensors, MakeAnalogSensor(sensor.(map[string]interface{})))
+		for _, sensor := range sensor_interfaces {
+			sensors = append(sensors, MakeAnalogSensor(sensor.(map[string]interface{})))
 		}
 
-		m.Sensors = temp_sensors
+		m.Sensors = sensors
 	}
 
 	return m

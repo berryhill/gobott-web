@@ -27,13 +27,13 @@ func NewAnalogSensor (name string) *AnalogSensor {
 func MakeAnalogSensor(mapp map[string]interface{}) *AnalogSensor {
 	as := NewAnalogSensor("test")
 	if val, ok := mapp["value"]; ok && val != nil {
-		as.Value = val.(int32)
+		as.Value = int32(val.(float64))
 	}
 	if val, ok := mapp["peak"]; ok && val != nil {
-		as.Peak = val.(int32)
+		as.Peak = int32(val.(float64))
 	}
 	if val, ok := mapp["floor"]; ok && val != nil {
-		as.Peak = val.(int32)
+		as.Peak = int32(val.(float64))
 	}
 
 	return as

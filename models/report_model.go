@@ -39,20 +39,17 @@ func (r *Report) UnmarshalJson(data []byte) error {
 	report_json_struct := struct {
 		BaseModel
 		Date 				time.Time            `json:"date"`
-		Machine 			interface{}          `json:"sensors"`
+		Machine 			interface{}          `json:"machine"`
 	}{}
 
 	if err := json.Unmarshal(data, &report_json_struct); err != nil {
 		return fmt.Errorf("error unmarshaling report: %v", err)
 	}
 
-	fmt.Println(report_json_struct.Machine)
-	//r.Id = report_json_struct.Id
-	//r.Name = report_json_struct.Name
-	//mapp := report_json_struct.Machine.(map[string]interface{})
-	//r.Machine = MakeMachine(mapp)
-
-	fmt.Println(report_json_struct)
+	r.Id = report_json_struct.Id
+	r.Name = report_json_struct.Name
+	mapp := report_json_struct.Machine.(map[string]interface{})
+	r.Machine = MakeMachine(mapp)
 
 	return nil
 }

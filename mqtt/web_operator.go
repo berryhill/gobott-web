@@ -13,7 +13,7 @@ var MqttClient *MQTT.Client
 
 var f MQTT.MessageHandler = func(client *MQTT.Client, msg MQTT.Message) {
 	fmt.Printf("TOPIC: %s\n", msg.Topic())
-	fmt.Printf("MSG: %s\n", msg.Payload())
+	//fmt.Printf("MSG: %s\n", msg.Payload())
 
 	HandleReport(msg)
 
@@ -38,23 +38,22 @@ func StartMqttClient() {
 
 func HandleReport (msg MQTT.Message) error {
 	fmt.Println("Handling Report")
-	fmt.Printf("MSG: %s\n", msg.Payload())
 	report := new(models.Report)
 	if err := report.UnmarshalJson(msg.Payload()); err != nil {
 		fmt.Println("Error Unmarshalling")
 		return fmt.Errorf("error unmarshaling report: %v", err)
 	}
-	fmt.Println("Report Id: ", report.Id)
-	fmt.Println("Report Name: ", report.Name)
-	//fmt.Println("Machine Id: ", report.Machine.Id)
-	//fmt.Println("Machine Name: ", report.Machine.Name)
-	//fmt.Println("LightSensor Value: ", report.Machine.Sensors[0])
-	//fmt.Println("Thermistor Value: ", report.Machine.Sensors[1])
+	fmt.Println("	Report Id: ", report.Id)
+	fmt.Println("	Report Name: ", report.Name)
+	fmt.Println("	Machine Id: ", report.Machine.Id)
+	fmt.Println("	Machine Name: ", report.Machine.Name)
+	fmt.Println("		LightSensor Value: ", report.Machine.Sensors[0].Value)
+	fmt.Println("		Thermistor Value: ", report.Machine.Sensors[1].Value)
 
-	//if err := report.Save(); err != nil {
-	//	fmt.Println("Error Saving")
-	//	return fmt.Errorf("error saving report: %v", err)
-	//}
+	if err := report.Save(); err != nil {
+		fmt.Println("Error Saving")
+		return fmt.Errorf("error saving report: %v", err)
+	}
 
 	return nil
 }
