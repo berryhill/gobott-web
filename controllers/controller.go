@@ -18,7 +18,6 @@ func Respond(c echo.Context, err error, result interface{}) error {
 	}
 
 	statusCode := http.StatusOK
-
 	/*
 		switch err {
 		case gorm.RecordNotFound:
@@ -27,9 +26,6 @@ func Respond(c echo.Context, err error, result interface{}) error {
 			statusCode = http.StatusInternalServerError
 		}
 	*/
-
-	fmt.Println(result)
-
 	return c.JSON(statusCode, map[string]interface{} {
 		"result":  result,
 		"error":   err != nil,

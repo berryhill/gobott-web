@@ -70,5 +70,5 @@ func (r *Report) Save() error {
 
 	session.Close()
 
-	return nil
+	return err
 }

@@ -12,6 +12,7 @@ import (
 	"github.com/gobott-web/models"
 	"github.com/gobott-web/mqtt"
 	"gopkg.in/mgo.v2"
+	"encoding/json"
 )
 
 func GetReports(my interface{}) echo.HandlerFunc {
@@ -25,25 +26,22 @@ func GetReports(my interface{}) echo.HandlerFunc {
 		if err != nil {
 			log.Fatal(err)
 		}
-		if err != nil {
-			return err
-		}
 
 		collection = session.DB("test").C("reports")
 		if err != nil {
 			return err
 		}
 
-		var results []models.Report
-		err = collection.Find(bson.M{"name": "green1"}).Sort("-timestamp").All(&results)
+		results :=  []models.Report{}
+		err = collection.Find(bson.M{"_id": bson.M{"$exists": 1}}).All(&results)
 		if err != nil {
 			return err
 		}
-		fmt.Println("Results All: ", results)
-
+		json, err := json.MarshalIndent(results, "", "    ")
+		fmt.Println("Number of Reports: ", len(results))
 		session.Close()
 
-		return err
+		return Respond(c, err, json)
 	}
 }
 
