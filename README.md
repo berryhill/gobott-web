@@ -1,4 +1,4 @@
-# gobott-web
+# Canna-bot Web
 
 ### Greetings to Canna-bot
 
