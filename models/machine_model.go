@@ -28,8 +28,9 @@ func NewMachine(name string) *Machine {
 
 func MakeMachine(mapp map[string]interface{}) *Machine {
 	m := NewMachine("Test")
-	if val, ok := mapp["id"]; ok && val != nil {
-	m.Name = val.(string)
+	if val, ok := mapp["_id"]; ok && val != nil {
+		temp_id := val.(string)
+		m.Id = bson.ObjectIdHex(temp_id)
 	}
 	if val, ok := mapp["name"]; ok && val != nil {
 		m.Name = val.(string)

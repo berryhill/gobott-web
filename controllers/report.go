@@ -37,6 +37,7 @@ func GetReports(my interface{}) echo.HandlerFunc {
 		if err != nil {
 			return err
 		}
+
 		json, err := json.MarshalIndent(results, "", "    ")
 		fmt.Println("Number of Reports: ", len(results))
 		session.Close()
