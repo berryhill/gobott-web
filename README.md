@@ -1,4 +1,4 @@
-# Canna-bot Web
+# Canna-bot API
 
 ### Greetings to Canna-bot
 
