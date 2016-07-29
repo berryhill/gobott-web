@@ -16,6 +16,14 @@ http://138.68.5.215
 /reports
 ```
 This endpoint currently returns all reports saved in the database
+```
+/resume_report
+```
+This endpoint currently tells the machine to resume outbound reports (granted there's a gateway online)
+```
+/halt_report
+```
+This endpoint currently tells the machine to halt outbound reports (granted there's a gateway online)
 
 
 ## API Development Environment Setup Guide
