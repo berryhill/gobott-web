@@ -1,20 +1,48 @@
 package controllers
 
 import (
-	"github.com/labstack/echo"
+	"fmt"
+	"log"
+	//"strconv"
 
-	"github.com/gobott-web/store"
+	"github.com/labstack/echo"
+	"gopkg.in/mgo.v2/bson"
+
+	//"github.com/gobott-web/store"
 	"github.com/gobott-web/models"
 	"github.com/gobott-web/mqtt"
-	//"strconv"
+	"gopkg.in/mgo.v2"
+	"encoding/json"
 )
 
-func GetAllReports(my interface{}) echo.HandlerFunc {
+func GetReports(my interface{}) echo.HandlerFunc {
 	return func(c echo.Context) error {
-		//err, reports := store.RetrieveAllFromDb(models.Report{}, []byte("reports"))
-		err := store.RetrieveAllFromDb(models.Report{}, []byte("reports"))
+		var session *mgo.Session
+		var collection *mgo.Collection
+		var err error
 
-		return Respond(c, err, []byte("REPORTS"))
+		session, err = mgo.Dial("localhost:27017")
+		defer session.Close()
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		collection = session.DB("test").C("reports")
+		if err != nil {
+			return err
+		}
+
+		results :=  []models.Report{}
+		err = collection.Find(bson.M{"_id": bson.M{"$exists": 1}}).All(&results)
+		if err != nil {
+			return err
+		}
+
+		json, err := json.MarshalIndent(results, "", "    ")
+		fmt.Println("Number of Reports: ", len(results))
+		session.Close()
+
+		return Respond(c, err, json)
 	}
 }
 
@@ -36,7 +64,6 @@ func HaltReport(my interface{}) echo.HandlerFunc {
 
 func SetTimer(my interface{}) echo.HandlerFunc {
 	return func(c echo.Context) error {
-		//seconds, _ := strconv.Atoi(c.Param("seconds"))
 		seconds := c.Param("seconds")
 		message := ("timer " + seconds)
 		err := mqtt.Send([]byte(string(message)))
@@ -44,23 +71,3 @@ func SetTimer(my interface{}) echo.HandlerFunc {
 		return Respond(c, err, []byte("SetTimer"))
 	}
 }
-
-/*
-func SetTimer(my interface{}) echo.HandlerFunc {
-	return func(c echo.Context) error {
-		timer := new(models.Timer)
-		seconds, _ := strconv.Atoi(c.Param("seconds"))
-		timer.Seconds = seconds
-
-		json, err := json.Marshal(timer)
-
-		if err != nil {
-			return Respond(c, err, []byte("ERROR"))
-		}
-
-		err = mqtt.Send(json)
-
-		return Respond(c, err, []byte("Halt Report"))
-	}
-}
-*/

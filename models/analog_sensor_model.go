@@ -13,13 +13,28 @@ type AnalogSensor struct {
 	BaseModel
 	Value 		int32                `json:"value"`
 	Peak		int32                `json:"peak"`
-	floor 		int32                `json:"floor"`
+	Floor 		int32                `json:"floor"`
 }
 
 func NewAnalogSensor (name string) *AnalogSensor {
 	as := new(AnalogSensor)
 	as.Name = name
 	as.Id = bson.NewObjectId()
+
+	return as
+}
+
+func MakeAnalogSensor(mapp map[string]interface{}) *AnalogSensor {
+	as := NewAnalogSensor("test")
+	if val, ok := mapp["value"]; ok && val != nil {
+		as.Value = int32(val.(float64))
+	}
+	if val, ok := mapp["peak"]; ok && val != nil {
+		as.Peak = int32(val.(float64))
+	}
+	if val, ok := mapp["floor"]; ok && val != nil {
+		as.Peak = int32(val.(float64))
+	}
 
 	return as
 }
@@ -62,3 +77,4 @@ func (as *AnalogSensor) Save() error {
 
 	return nil
 }
+

@@ -4,6 +4,7 @@
       <root url="file://$PROJECT_DIR$/../../google.golang.org" />
       <root url="file://$PROJECT_DIR$/../../gopkg.in" />
       <root url="file://$PROJECT_DIR$/.." />
+      <root url="file://$PROJECT_DIR$/../../labix.org" />
       <root url="file://$PROJECT_DIR$/../../golang.org" />
       <root url="file://$PROJECT_DIR$/../../git.eclipse.org" />
       <root url="file://$PROJECT_DIR$/../../goji.io" />

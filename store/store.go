@@ -1,23 +1,34 @@
 package store
 
 import (
-	"fmt"
+	//"fmt"
 	"log"
 	"encoding/binary"
 
-	"github.com/boltdb/bolt"
-
-	//"github.com/gobott-web/models"
+	//"github.com/boltdb/bolt"
+	"gopkg.in/mgo.v2"
 )
 
-func openDb() (*bolt.DB, error) {
-	db, err := bolt.Open("my.db", 0600, nil)
+var url string = "http://127.0.0.1:27017"
 
+func openDb() (*mgo.Session, error) {
+	//db, err := bolt.Open("my.db", 0600, nil)
+	session, err := mgo.Dial(url)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	return db, err
+	return session, err
+}
+
+func OpenDb() (*mgo.Session, error) {
+	//db, err := bolt.Open("my.db", 0600, nil)
+	session, err := mgo.Dial(url)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return session, err
 }
 
 func itob(v int) []byte {
@@ -27,93 +38,91 @@ func itob(v int) []byte {
 	return b
 }
 
-func AddToDb(bucket []byte, value []byte) error {
-	db, err := openDb()
-	defer db.Close()
+func AddToDb(database []byte, data []byte, ) error {
+	//err = db.Update(func(tx *bolt.Tx) error {
+	//	bucket, err := tx.CreateBucketIfNotExists(bucket)
+	//
+	//	if err != nil {
+	//		return err
+	//	}
+	//
+	//	id, _ := bucket.NextSequence()
+	//	key := itob(int(id))
+	//
+	//	err = bucket.Put(key, value)
+	//
+	//	if err != nil {
+	//		return err
+	//	}
+	//
+	//	return nil
+	//})
+	//
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//
+	//if err = db.Close(); err != nil {
+	//	log.Fatal(err)
+	//}
+	//
 
-	err = db.Update(func(tx *bolt.Tx) error {
-		bucket, err := tx.CreateBucketIfNotExists(bucket)
-
-		if err != nil {
-			return err
-		}
-
-		id, _ := bucket.NextSequence()
-		key := itob(int(id))
-
-		err = bucket.Put(key, value)
-
-		if err != nil {
-			return err
-		}
-
-		return nil
-	})
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	if err = db.Close(); err != nil {
-		log.Fatal(err)
-	}
-
-	return err
+	return nil
 }
 
 func RetrieveFromDb(bucket []byte, key []byte) error {
-	db, err := openDb()
-	defer db.Close()
+	//db, err := openDb()
+	//defer db.Close()
+	//
+	//err = db.View(func(tx *bolt.Tx) error {
+	//	bucket := tx.Bucket(bucket)
+	//	if bucket == nil {
+	//		return fmt.Errorf("Bucket %q not found!", key)
+	//	}
+	//
+	//	val := bucket.Get(key)
+	//	fmt.Println(string(val))
+	//
+	//	return nil
+	//})
+	//
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//
+	//if err = db.Close(); err != nil {
+	//	log.Fatal(err)
+	//}
 
-	err = db.View(func(tx *bolt.Tx) error {
-		bucket := tx.Bucket(bucket)
-		if bucket == nil {
-			return fmt.Errorf("Bucket %q not found!", key)
-		}
-
-		val := bucket.Get(key)
-		fmt.Println(string(val))
-
-		return nil
-	})
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	if err = db.Close(); err != nil {
-		log.Fatal(err)
-	}
-
-	return err
+	return nil
 }
 
 func RetrieveAllFromDb(model interface{}, bucket []byte) /*(map[string][]byte, error)*/ error {
-	db, err := openDb()
-	defer db.Close()
-
-	err = db.View(func(tx *bolt.Tx) error {
-		b := tx.Bucket(bucket)
-		c := b.Cursor()
-
-		//var list []interface{}
-		for k, v := c.First(); k != nil; k, v = c.Next() {
-			//retrieved := new(model)
-			//list = append(list, )
-
-			fmt.Printf("key=%s, value=%s\n", k, v)
-		}
-
-		return nil
-	})
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	if err = db.Close(); err != nil {
-		log.Fatal(err)
-	}
+	//db, err := openDb()
+	//defer db.Close()
+	//
+	//err = db.View(func(tx *bolt.Tx) error {
+	//	b := tx.Bucket(bucket)
+	//	c := b.Cursor()
+	//
+	//	//var list []interface{}
+	//	for k, v := c.First(); k != nil; k, v = c.Next() {
+	//		//retrieved := new(model)
+	//		//list = append(list, )
+	//
+	//		fmt.Printf("key=%s, value=%s\n", k, v)
+	//	}
+	//
+	//	return nil
+	//})
+	//
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//
+	//if err = db.Close(); err != nil {
+	//	log.Fatal(err)
+	//}
 
 	return nil
 }

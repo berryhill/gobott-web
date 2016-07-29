@@ -22,7 +22,8 @@ func main() {
 	e.Get("/get_user/:bucket/:key", controllers.GetUser("GetUser"))
 	e.Get("/get_user", controllers.GetUsers("GetUsers"))
 
-	e.Get("/get_all_reports", controllers.GetAllReports("GetAllReports"))
+	//e.Get("/get_all_reports", controllers.GetAllReports("GetAllReports"))
+	e.Get("/reports", controllers.GetReports("GetReports"))
 
 	e.Get("/resume_report", controllers.ResumeReport("Resumer Report"))
 	e.Get("/halt_report", controllers.HaltReport("Halt Report"))
