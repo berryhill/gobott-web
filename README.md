@@ -1,6 +1,6 @@
 # Gobott API
 
-### Greetings to Canna-bot
+### Greetings to Gobott
 
 This guide is here to help you start calling the Canna-bot API that is the deployed
 
