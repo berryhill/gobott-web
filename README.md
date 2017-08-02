@@ -1,4 +1,4 @@
-# Canna-bot API
+# Gobott API
 
 ### Greetings to Canna-bot
 
