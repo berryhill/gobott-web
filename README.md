@@ -43,19 +43,19 @@ git clone git@github.com:berryhill/gobott-web.git
 
 ### Install Dependencies
 ```
-cd $GOPATH/src/github.com/canna-bot
+cd $GOPATH/src/github.com/gobott-web
 go get
 ```
 
 ## Building and Running Canna-bot
 ### Build Project
 ```
-cd $GOPATH/src/github.com/canna-bot
+cd $GOPATH/src/github.com/gobott-web
 go build main.go
 ```
 
 ### Run Project
 ```
-cd $GOPATH/src/github.com/canna-bot
+cd $GOPATH/src/github.com/gobott-web
 go run main.go
 ```
